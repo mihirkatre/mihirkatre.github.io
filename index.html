@@ -3,163 +3,1115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mihir Katre — Cybersecurity Portfolio</title>
-  <meta name="description" content="Cybersecurity professional specializing in SOC, Incident Response, Cloud Security, and Application Security." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Mihir Katre — Cybersecurity Engineer</title>
+  <meta name="description" content="Senior Cybersecurity Engineer specializing in Cloud Security Architecture, SOC Operations, and Application Security with proven track record of reducing vulnerabilities and improving compliance." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --bg: #0d1117;
-      --panel: #161b22;
-      --text: #e6edf3;
-      --muted: #8b949e;
-      --brand: #3fb950;
-      --accent: #58a6ff;
-      --gradient: linear-gradient(135deg, #3fb950, #58a6ff);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-    a { color: var(--accent); text-decoration: none; }
-    header { background: rgba(13, 17, 23, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #21262d; position: sticky; top: 0; z-index: 10; }
-    .nav { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; padding: 16px 20px; }
-    .nav a { margin: 0 12px; font-weight: 500; color: var(--text); transition: color 0.2s; }
-    .nav a:hover { color: var(--accent); }
-    .brand { font-weight: 700; font-size: 1.3rem; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: glowPulse 3s infinite; }
-
-    .container { max-width: 1100px; margin: 0 auto; padding: 70px 20px; position: relative; }
-    h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 12px; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: glowPulse 4s infinite; }
-    h2 { font-size: 1.9rem; font-weight: 600; margin-bottom: 16px; color: var(--brand); position: relative; }
-    h2::after { content: ""; display: block; width: 70px; height: 4px; background: var(--accent); margin-top: 8px; border-radius: 3px; animation: glowPulse 3s infinite alternate; }
-
-    p.lead { font-size: 1.15rem; margin-bottom: 20px; color: var(--muted); }
-    .btn { display: inline-block; padding: 12px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
-    .btn.primary { background: var(--gradient); color: #fff; box-shadow: 0 4px 12px rgba(88,166,255,0.3); }
-    .btn.primary:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(88,166,255,0.5); }
-    .btn.outline { border: 1px solid var(--accent); color: var(--accent); background: transparent; }
-    .btn.outline:hover { background: rgba(88,166,255,0.1); }
-
-    .card { background: var(--panel); border: 1px solid #21262d; border-radius: 10px; padding: 24px; transition: transform 0.3s, box-shadow 0.3s, opacity 0.6s, border-color 0.6s; opacity: 0; transform: translateY(20px); }
-    .card.visible { opacity: 1; transform: translateY(0); box-shadow: 0 0 15px rgba(88,166,255,0.2); border-color: var(--accent); }
-    .grid { display: grid; gap: 24px; }
-    .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
-    .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
-    @media(max-width:900px){ .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; } }
-
-    ul { padding-left: 20px; }
-    ul li { margin: 8px 0; }
-
-    .exp-item { margin-bottom: 26px; padding-left: 14px; border-left: 3px solid var(--accent); opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
-    .exp-item.visible { opacity: 1; transform: translateY(0); animation: glowBorder 3s infinite alternate; }
-    .exp-item h3 { margin-bottom: 6px; }
-
-    footer { text-align: center; padding: 30px 0; border-top: 1px solid #21262d; color: var(--muted); margin-top: 40px; }
-
-    .icon-title { display: flex; align-items: center; gap: 8px; font-size: 1.2rem; margin-bottom: 10px; color: var(--accent); animation: glowPulse 5s infinite; }
-
-    .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: radial-gradient(circle at top left, rgba(88,166,255,0.15), transparent 40%), radial-gradient(circle at bottom right, rgba(63,185,80,0.15), transparent 40%); }
-    .container > * { position: relative; z-index: 1; }
-
-    @keyframes glowPulse {
-      0% { text-shadow: 0 0 2px var(--accent), 0 0 5px var(--accent); }
-      50% { text-shadow: 0 0 10px var(--accent), 0 0 20px var(--brand); }
-      100% { text-shadow: 0 0 2px var(--accent), 0 0 5px var(--accent); }
+      --bg-primary: #0a0e13;
+      --bg-secondary: #1a1f2e;
+      --bg-tertiary: #252b3d;
+      --text-primary: #ffffff;
+      --text-secondary: #a8b3cf;
+      --text-muted: #6b7280;
+      --accent-primary: #00d4ff;
+      --accent-secondary: #0ea5e9;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --border: rgba(255, 255, 255, 0.1);
+      --shadow: rgba(0, 0, 0, 0.25);
+      --glow: rgba(0, 212, 255, 0.3);
     }
 
-    @keyframes glowBorder {
-      0% { border-color: var(--accent); }
-      50% { border-color: var(--brand); box-shadow: 0 0 12px var(--brand); }
-      100% { border-color: var(--accent); }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      font-weight: 400;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 14, 19, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(10, 14, 19, 0.98);
+      box-shadow: 0 8px 32px var(--shadow);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: var(--accent-primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+      animation: backgroundShift 20s ease-in-out infinite;
+    }
+
+    @keyframes backgroundShift {
+      0%, 100% { transform: translateX(0) translateY(0); }
+      33% { transform: translateX(-20px) translateY(10px); }
+      66% { transform: translateX(20px) translateY(-10px); }
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      padding: 0 2rem;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px var(--glow);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      color: white;
+      box-shadow: 0 4px 15px var(--glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px var(--glow);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--accent-primary);
+      border: 2px solid var(--accent-primary);
+    }
+
+    .btn-secondary:hover {
+      background: var(--accent-primary);
+      color: white;
+    }
+
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .skill-category {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-category::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    }
+
+    .skill-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .skill-icon {
+      font-size: 2.5rem;
+      color: var(--accent-primary);
+      margin-bottom: 1rem;
+    }
+
+    .skill-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .skill-list {
+      list-style: none;
+    }
+
+    .skill-list li {
+      padding: 0.5rem 0;
+      color: var(--text-secondary);
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .skill-list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent-primary);
+    }
+
+    /* Experience Section */
+    .experience-timeline {
+      position: relative;
+      margin-top: 3rem;
+    }
+
+    .experience-timeline::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
+    }
+
+    .experience-item {
+      position: relative;
+      margin-bottom: 3rem;
+      margin-left: 4rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .experience-item::before {
+      content: '';
+      position: absolute;
+      left: -4.5rem;
+      top: 2rem;
+      width: 16px;
+      height: 16px;
+      background: var(--accent-primary);
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px var(--bg-primary);
+    }
+
+    .experience-item:hover {
+      transform: translateX(10px);
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+    }
+
+    .job-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .company {
+      font-size: 1.1rem;
+      color: var(--accent-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .date {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .achievements {
+      list-style: none;
+    }
+
+    .achievements li {
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .achievements li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--success);
+      font-weight: bold;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--success), var(--warning));
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .project-subtitle {
+      color: var(--accent-primary);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Certifications */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .cert-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 212, 255, 0.1);
+    }
+
+    .cert-icon {
+      font-size: 2rem;
+      color: var(--accent-primary);
+      margin-bottom: 1rem;
+    }
+
+    /* Contact Section */
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-info {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-item i {
+      color: var(--accent-primary);
+      width: 20px;
+    }
+
+    .contact-item a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent-primary);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 1rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-content {
+        padding: 0 1rem;
+      }
+
+      .container {
+        padding: 0 1rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-timeline::before {
+        left: 15px;
+      }
+
+      .experience-item {
+        margin-left: 2rem;
+      }
+
+      .experience-item::before {
+        left: -2.5rem;
+      }
+    }
+
+    /* Animation Classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .slide-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .slide-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="nav">
-      <div class="brand"><i class="fa-solid fa-shield-halved"></i> Mihir Katre</div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#certs">Certifications</a>
-        <a href="#contact">Contact</a>
-      </nav>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <i class="fas fa-shield-alt"></i>
+        Mihir Katre
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Expertise</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Credentials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
-  </header>
+  </nav>
 
-  <section class="container" id="hero">
-    <div class="hero-bg"></div>
-    <h1><i class="fa-solid fa-lock"></i> Cybersecurity Professional</h1>
-    <p class="lead">I specialize in protecting organizations through SOC operations, incident response, cloud security, and application security. Experienced across AWS, Azure, GCP, and with proven results in improving compliance and reducing vulnerabilities.</p>
-    <div style="margin-top: 24px;">
-      <a href="assets/resume.pdf" class="btn primary" download><i class="fa-solid fa-download"></i> Download Resume</a>
-      <a href="#contact" class="btn outline"><i class="fa-solid fa-envelope"></i> Contact Me</a>
-    </div>
-  </section>
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Cybersecurity Engineer</h1>
+      <p class="hero-subtitle">Protecting Digital Assets • Cloud Security Architecture • SOC Operations</p>
+      
+      <div class="stats-grid">
+        <div class="stat-item fade-in">
+          <span class="stat-number">65%</span>
+          <span class="stat-label">Vulnerability Reduction</span>
+        </div>
+        <div class="stat-item fade-in">
+          <span class="stat-number">93%</span>
+          <span class="stat-label">Compliance Achievement</span>
+        </div>
+        <div class="stat-item fade-in">
+          <span class="stat-number">35%</span>
+          <span class="stat-label">Faster Incident Response</span>
+        </div>
+        <div class="stat-item fade-in">
+          <span class="stat-number">70%</span>
+          <span class="stat-label">SOC Efficiency Gain</span>
+        </div>
+      </div>
 
-  <section class="container" id="about">
-    <h2><i class="fa-solid fa-user-secret"></i> About Me</h2>
-    <p>I’m Mihir Katre, a cybersecurity analyst with hands-on expertise in SOC operations, cloud security, and detection engineering. I’ve worked at Deloitte, Tyler Technologies, and LTIMindtree, reducing exploitable flaws by 65%, improving audit outcomes by 60%, and cutting incident containment time by 35%.</p>
-  </section>
-
-  <section class="container" id="skills">
-    <h2><i class="fa-solid fa-microchip"></i> Core Skills</h2>
-    <div class="grid cols-3">
-      <div class="card"><div class="icon-title"><i class="fa-solid fa-bullseye"></i> Detection & Response</div><ul><li>SIEM/SOAR</li><li>Threat Hunting</li><li>Incident Response</li></ul></div>
-      <div class="card"><div class="icon-title"><i class="fa-solid fa-cloud"></i> Cloud Security</div><ul><li>AWS, Azure, GCP</li><li>Zero Trust IAM</li><li>Network Hardening</li></ul></div>
-      <div class="card"><div class="icon-title"><i class="fa-solid fa-code"></i> Application Security</div><ul><li>OWASP Top 10</li><li>SAST/DAST</li><li>API Security</li></ul></div>
-    </div>
-  </section>
-
-  <section class="container" id="experience">
-    <h2><i class="fa-solid fa-briefcase"></i> Experience</h2>
-    <div class="exp-item"><h3>Software Developer — Tyler Technologies</h3><p class="lead">May 2024 – Present</p><ul><li>Reduced exploitable flaws by 65% through secure development practices.</li><li>Integrated security tools (Snyk, Burp, SonarQube) into CI/CD.</li><li>Improved audit outcomes by 60% by remediating access gaps.</li></ul></div>
-    <div class="exp-item"><h3>Cloud Security Consultant — Deloitte</h3><p class="lead">Sep 2022 – Jul 2023</p><ul><li>Led multi-cloud security architecture achieving 93% compliance.</li><li>Implemented Zero Trust IAM and hardened perimeter defenses.</li></ul></div>
-    <div class="exp-item"><h3>Cloud Security Engineer — LTIMindtree</h3><p class="lead">Jun 2020 – Mar 2022</p><ul><li>Mitigated 95% of critical vulns pre-deployment with threat modeling.</li><li>Automated SOC workflows, saving 70% analyst effort.</li><li>Cut containment time by 35% with faster incident response.</li></ul></div>
-  </section>
-
-  <section class="container" id="projects">
-    <h2><i class="fa-solid fa-diagram-project"></i> Projects</h2>
-    <div class="grid cols-2">
-      <div class="card"><h3><i class="fa-solid fa-network-wired"></i> Multi-Cloud Monitoring Tool</h3><p class="lead">NSA Collaboration</p><ul><li>Built real-time telemetry monitoring across AWS, Azure, GCP.</li><li>Increased actionable detections by 30%.</li></ul></div>
-      <div class="card"><h3><i class="fa-solid fa-user-ninja"></i> Offensive Security Simulation</h3><p class="lead">Albany, NY</p><ul><li>Pen-tested OWASP Top 10 flaws, reducing exposure by 50% post-remediation.</li><li>Enhanced incident response playbooks with MITRE ATT&CK mapping.</li></ul></div>
-    </div>
-  </section>
-
-  <section class="container" id="certs">
-    <h2><i class="fa-solid fa-certificate"></i> Education & Certifications</h2>
-    <div class="grid cols-2">
-      <div class="card"><h3><i class="fa-solid fa-graduation-cap"></i> University at Albany, SUNY</h3><p>M.S. Digital Forensics & Cybersecurity — GPA 3.97</p></div>
-      <div class="card"><h3><i class="fa-solid fa-award"></i> Certifications</h3><ul><li>AWS Cloud Practitioner</li><li>Azure Administrator (AZ-104)</li><li>CompTIA Security+ (in progress)</li></ul></div>
+      <div class="cta-buttons">
+        <a href="assets/resume.pdf" class="btn btn-primary" download>
+          <i class="fas fa-download"></i>
+          Download Resume
+        </a>
+        <a href="#contact" class="btn btn-secondary">
+          <i class="fas fa-envelope"></i>
+          Get In Touch
+        </a>
+      </div>
     </div>
   </section>
 
-  <section class="container" id="contact">
-    <h2><i class="fa-solid fa-envelope"></i> Contact</h2>
-    <div class="card">
-      <p><i class="fa-solid fa-paper-plane"></i> Email: <a href="mailto:mihirkatre@gmail.com">mihirkatre@gmail.com</a></p>
-      <p><i class="fa-solid fa-phone"></i> Phone: 518-708-1649</p>
-      <p><i class="fa-brands fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/mihir-katre/" target="_blank">linkedin.com/in/mihir-katre</a></p>
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section-title fade-in">Professional Profile</h2>
+      <div class="fade-in" style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary);">
+        <p>Senior Cybersecurity Engineer with expertise in multi-cloud security architecture, SOC operations, and application security. Proven track record at Deloitte, Tyler Technologies, and LTIMindtree with quantifiable results in vulnerability reduction, compliance improvement, and incident response optimization.</p>
+        <p style="margin-top: 1rem;">Specialized in zero-trust architectures, threat detection engineering, and secure development practices across AWS, Azure, and GCP environments.</p>
+      </div>
     </div>
   </section>
 
-  <footer>
-    © <span id="year"></span> Mihir Katre. All Rights Reserved.
+  <!-- Skills Section -->
+  <section class="section" id="skills">
+    <div class="container">
+      <h2 class="section-title fade-in">Core Expertise</h2>
+      <div class="skills-grid">
+        <div class="skill-category fade-in">
+          <div class="skill-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3 class="skill-title">Detection & Response</h3>
+          <ul class="skill-list">
+            <li>SIEM/SOAR Platforms (Splunk, QRadar, Sentinel)</li>
+            <li>Threat Hunting & Intelligence</li>
+            <li>Incident Response & Forensics</li>
+            <li>MITRE ATT&CK Framework</li>
+            <li>Security Orchestration</li>
+          </ul>
+        </div>
+
+        <div class="skill-category fade-in">
+          <div class="skill-icon">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <h3 class="skill-title">Cloud Security Architecture</h3>
+          <ul class="skill-list">
+            <li>Multi-Cloud Security (AWS, Azure, GCP)</li>
+            <li>Zero Trust Network Architecture</li>
+            <li>Container & Kubernetes Security</li>
+            <li>Infrastructure as Code (Terraform)</li>
+            <li>Cloud Compliance (SOC2, ISO 27001)</li>
+          </ul>
+        </div>
+
+        <div class="skill-category fade-in">
+          <div class="skill-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="skill-title">Application Security</h3>
+          <ul class="skill-list">
+            <li>Secure Code Review & SAST/DAST</li>
+            <li>OWASP Top 10 & API Security</li>
+            <li>DevSecOps Integration</li>
+            <li>Vulnerability Assessment</li>
+            <li>Penetration Testing</li>
+          </ul>
+        </div>
+
+        <div class="skill-category fade-in">
+          <div class="skill-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3 class="skill-title">Security Tools & Technologies</h3>
+          <ul class="skill-list">
+            <li>Snyk, SonarQube, Burp Suite</li>
+            <li>Nessus, Qualys, Rapid7</li>
+            <li>CrowdStrike, Carbon Black</li>
+            <li>Wireshark, Metasploit</li>
+            <li>Python, PowerShell, Bash</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="section" id="experience">
+    <div class="container">
+      <h2 class="section-title fade-in">Professional Experience</h2>
+      <div class="experience-timeline">
+        <div class="experience-item slide-in-right">
+          <h3 class="job-title">Software Developer</h3>
+          <div class="company">Tyler Technologies</div>
+          <div class="date">May 2024 – Present</div>
+          <ul class="achievements">
+            <li>Reduced exploitable security flaws by 65% through implementation of secure development practices and code review processes</li>
+            <li>Integrated security tools (Snyk, Burp Suite, SonarQube) into CI/CD pipeline, achieving automated vulnerability detection</li>
+            <li>Improved audit compliance outcomes by 60% through systematic remediation of access control gaps and security configurations</li>
+            <li>Led cross-functional security training initiatives for development teams</li>
+          </ul>
+        </div>
+
+        <div class="experience-item slide-in-right">
+          <h3 class="job-title">Cloud Security Consultant</h3>
+          <div class="company">Deloitte</div>
+          <div class="date">September 2022 – July 2023</div>
+          <ul class="achievements">
+            <li>Architected multi-cloud security solutions achieving 93% compliance across AWS, Azure, and GCP environments</li>
+            <li>Designed and implemented Zero Trust IAM frameworks for enterprise clients</li>
+            <li>Hardened network perimeter defenses reducing attack surface by 40%</li>
+            <li>Conducted security assessments for Fortune 500 clients resulting in risk reduction strategies</li>
+          </ul>
+        </div>
+
+        <div class="experience-item slide-in-right">
+          <h3 class="job-title">Cloud Security Engineer</h3>
+          <div class="company">LTIMindtree</div>
+          <div class="date">June 2020 – March 2022</div>
+          <ul class="achievements">
+            <li>Mitigated 95% of critical vulnerabilities pre-deployment through comprehensive threat modeling and security testing</li>
+            <li>Automated SOC workflows and processes, reducing manual analyst effort by 70%</li>
+            <li>Decreased incident containment time by 35% through enhanced detection rules and response playbooks</li>
+            <li>Developed custom security monitoring solutions for cloud-native applications</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section" id="projects">
+    <div class="container">
+      <h2 class="section-title fade-in">Key Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card fade-in">
+          <h3 class="project-title">Multi-Cloud Security Monitoring Platform</h3>
+          <p class="project-subtitle">NSA Collaboration Project</p>
+          <ul class="achievements">
+            <li>Developed real-time telemetry monitoring solution across AWS, Azure, and GCP</li>
+            <li>Increased actionable security detections by 30% through advanced analytics</li>
+            <li>Integrated threat intelligence feeds for enhanced context and prioritization</li>
+            <li>Implemented automated response capabilities for common threat scenarios</li>
+          </ul>
+        </div>
+
+        <div class="project-card fade-in">
+          <h3 class="project-title">Enterprise Security Assessment</h3>
+          <p class="project-subtitle">Offensive Security Simulation</p>
+          <ul class="achievements">
+            <li>Conducted comprehensive penetration testing focusing on OWASP Top 10 vulnerabilities</li>
+            <li>Reduced organizational security exposure by 50% through targeted remediation efforts</li>
+            <li>Enhanced incident response procedures with MITRE ATT&CK framework mapping</li>
+            <li>Delivered executive-level security posture reports and recommendations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section class="section" id="certifications">
+    <div class="container">
+      <h2 class="section-title fade-in">Education & Certifications</h2>
+      <div class="certs-grid">
+        <div class="cert-card fade-in">
+          <div class="cert-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3>Master of Science</h3>
+          <p style="color: var(--accent-primary); margin: 0.5rem 0;">Digital Forensics & Cybersecurity</p>
+          <p style="color: var(--text-secondary);">University at Albany, SUNY</p>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">GPA: 3.97/4.0</p>
+        </div>
+
+        <div class="cert-card fade-in">
+          <div class="cert-icon">
+            <i class="fab fa-aws"></i>
+          </div>
+          <h3>AWS Cloud Practitioner</h3>
+          <p style="color: var(--text-secondary); margin-top: 0.5rem;">Amazon Web Services</p>
+        </div>
+
+        <div class="cert-card fade-in">
+          <div class="cert-icon">
+            <i class="fab fa-microsoft"></i>
+          </div>
+          <h3>Azure Administrator</h3>
+          <p style="color: var(--text-secondary); margin-top: 0.5rem;">Microsoft AZ-104</p>
+        </div>
+
+        <div class="cert-card fade-in">
+          <div class="cert-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>CompTIA Security+</h3>
+          <p style="color: var(--warning); margin-top: 0.5rem;">In Progress</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-content">
+        <h2 class="section-title fade-in">Let's Connect</h2>
+        <p class="fade-in" style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem;">
+          Ready to discuss how I can strengthen your organization's security posture
+        </p>
+        <div class="contact-info fade-in">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:mihirkatre@gmail.com">mihirkatre@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>(518) 708-1649</span>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/mihir-katre/" target="_blank" rel="noopener">linkedin.com/in/mihir-katre</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Albany, New York</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="currentYear"></span> Mihir Katre. All rights reserved.</p>
+    </div>
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Set current year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-    // Scroll animation observer
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.2 });
+    }, observerOptions);
 
-    document.querySelectorAll('.card, .exp-item').forEach(el => observer.observe(el));
+    // Observe all animated elements
+    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Counter animation for stats
+    function animateCounters() {
+      const counters = document.querySelectorAll('.stat-number');
+      counters.forEach(counter => {
+        const target = parseInt(counter.textContent);
+        const increment = target / 50;
+        let current = 0;
+        
+        const updateCounter = () => {
+          if (current < target) {
+            current += increment;
+            counter.textContent = Math.ceil(current) + (counter.textContent.includes('%') ? '%' : '');
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.textContent = target + (counter.textContent.includes('%') ? '%' : '');
+          }
+        };
+        
+        updateCounter();
+      });
+    }
+
+    // Trigger counter animation when stats section is visible
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const statsGrid = document.querySelector('.stats-grid');
+    if (statsGrid) {
+      statsObserver.observe(statsGrid);
+    }
+
+    // Add typing effect to hero title
+    function typeWriter(element, text, speed = 100) {
+      let i = 0;
+      element.textContent = '';
+      
+      function type() {
+        if (i < text.length) {
+          element.textContent += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        }
+      }
+      
+      type();
+    }
+
+    // Initialize typing effect when page loads
+    window.addEventListener('load', () => {
+      const heroTitle = document.querySelector('.hero-title');
+      if (heroTitle) {
+        const originalText = heroTitle.textContent;
+        setTimeout(() => {
+          typeWriter(heroTitle, originalText, 150);
+        }, 500);
+      }
+    });
+
+    // Add parallax effect to hero background
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const hero = document.querySelector('.hero');
+      if (hero) {
+        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+      }
+    });
+
+    // Add hover effects for experience items
+    document.querySelectorAll('.experience-item').forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        item.style.borderLeft = '4px solid var(--accent-primary)';
+      });
+      
+      item.addEventListener('mouseleave', () => {
+        item.style.borderLeft = '1px solid var(--border)';
+      });
+    });
+
+    // Mobile menu toggle (if needed for smaller screens)
+    const createMobileMenu = () => {
+      const navContainer = document.querySelector('.nav-container');
+      const navLinks = document.querySelector('.nav-links');
+      
+      // Create hamburger menu for mobile
+      const hamburger = document.createElement('div');
+      hamburger.classList.add('hamburger');
+      hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+      hamburger.style.cssText = `
+        display: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: var(--accent-primary);
+        
+        @media (max-width: 768px) {
+          display: block;
+        }
+      `;
+      
+      navContainer.appendChild(hamburger);
+      
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-active');
+      });
+    };
+
+    // Initialize mobile menu
+    createMobileMenu();
+
+    // Add dynamic background particles
+    function createParticles() {
+      const hero = document.querySelector('.hero');
+      const particlesContainer = document.createElement('div');
+      particlesContainer.style.cssText = `
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+      `;
+      
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.style.cssText = `
+          position: absolute;
+          width: 2px;
+          height: 2px;
+          background: var(--accent-primary);
+          border-radius: 50%;
+          opacity: 0.3;
+          animation: float ${Math.random() * 10 + 10}s infinite linear;
+          left: ${Math.random() * 100}%;
+          top: ${Math.random() * 100}%;
+        `;
+        particlesContainer.appendChild(particle);
+      }
+      
+      hero.appendChild(particlesContainer);
+    }
+
+    // Add floating animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes float {
+        0% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(180deg); }
+        100% { transform: translateY(0px) rotate(360deg); }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Initialize particles
+    createParticles();
   </script>
 </body>
 </html>
