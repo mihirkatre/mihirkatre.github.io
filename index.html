@@ -1,181 +1,129 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mihir Katre — Cybersecurity Portfolio</title>
-  <meta name="description" content="Cybersecurity Analyst portfolio: SOC, Incident Response, Cloud Security (AWS, Azure, GCP), Threat Detection, and AppSec." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Cybersecurity professional specializing in SOC, Incident Response, Cloud Security, and Application Security." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root{
-      --bg:#0a0f1c; --panel:#121826; --muted:#9aa4b2; --text:#e8eef6; --brand:#00f7ff; --brand-2:#7c3aed; --ring: rgba(0,247,255,.35);
+    :root {
+      --bg: #0d1117;
+      --panel: #161b22;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --brand: #3fb950;
+      --accent: #58a6ff;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
-    h1,h2,h3,h4{font-family:"Space Mono",monospace}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
-    header{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(10,15,28,.85);border-bottom:1px solid rgba(255,255,255,.08)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
-    .brand{display:flex;align-items:center;font-weight:800;font-size:1.1rem;letter-spacing:.5px}
-    .brand .dot{width:12px;height:12px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 0 12px var(--brand)}
-    .nav a{margin:0 14px;opacity:.85;font-weight:500}
-    .nav a:hover{opacity:1;color:var(--brand)}
-    .btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;border:none;padding:12px 18px;border-radius:10px;font-weight:600;cursor:pointer;transition:.2s}
-    .btn:hover{box-shadow:0 0 18px var(--brand)}
-    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.25);color:var(--text)}
-    .hero{padding:100px 0 80px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;position:relative;z-index:2}
-    @media(max-width:900px){.hero{grid-template-columns:1fr}}
-    .card{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:24px;transition:.25s}
-    .card:hover{border-color:var(--brand)}
-    .section{padding:60px 0;position:relative;z-index:2}
-    .section h2{font-size:1.8rem;margin-bottom:14px;color:var(--brand)}
-    .muted{color:var(--muted)}
-    .grid{display:grid;gap:20px}
-    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
-    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-    @media(max-width:900px){.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}}
-    .bullets{padding-left:20px;margin-top:8px}
-    .bullets li{margin:8px 0}
-    .exp-item{padding:18px;border-left:3px solid var(--brand);background:rgba(255,255,255,.03);border-radius:10px;margin-bottom:16px}
-    .chip,.tag{display:inline-block;background:rgba(0,247,255,.08);padding:6px 10px;border-radius:999px;margin:6px 6px 0 0;border:1px solid rgba(0,247,255,.2);font-size:.85rem}
-    footer{padding:40px 0;color:var(--muted);text-align:center;border-top:1px solid rgba(255,255,255,.08);position:relative;z-index:2}
-    .head-xl{font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.2;margin:12px 0;background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;color:transparent;white-space:nowrap;overflow:hidden;border-right:3px solid var(--brand);animation:typing 4s steps(40,end), blink .75s step-end infinite}
-    .badge{font-size:.8rem;padding:6px 12px;border-radius:999px;background:rgba(124,58,237,.25);margin-bottom:10px;display:inline-block}
-    /* Typing effect */
-    @keyframes typing{from{width:0}to{width:100%}}
-    @keyframes blink{50%{border-color:transparent}}
-    /* Matrix background */
-    canvas#matrix{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;background:var(--bg)}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    header { background: var(--panel); border-bottom: 1px solid #21262d; position: sticky; top: 0; z-index: 10; }
+    .nav { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; padding: 16px 20px; }
+    .nav a { margin: 0 12px; font-weight: 500; color: var(--text); }
+    .nav a:hover { color: var(--accent); }
+    .brand { font-weight: 700; color: var(--brand); font-size: 1.2rem; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; position: relative; }
+    h1 { font-size: 2.6rem; font-weight: 700; margin-bottom: 12px; }
+    h2 { font-size: 1.8rem; font-weight: 600; margin-bottom: 16px; color: var(--brand); position: relative; }
+    h2::after { content: ""; display: block; width: 60px; height: 3px; background: var(--accent); margin-top: 6px; border-radius: 2px; }
+    p.lead { font-size: 1.1rem; margin-bottom: 20px; color: var(--muted); }
+    .btn { display: inline-block; padding: 12px 18px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+    .btn.primary { background: var(--brand); color: #fff; }
+    .btn.primary:hover { background: #2ea043; }
+    .btn.outline { border: 1px solid var(--accent); color: var(--accent); background: transparent; }
+    .btn.outline:hover { background: rgba(88,166,255,0.1); }
+    .card { background: var(--panel); border: 1px solid #21262d; border-radius: 8px; padding: 20px; }
+    .grid { display: grid; gap: 20px; }
+    .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    @media(max-width:900px){ .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; } }
+    ul { padding-left: 18px; }
+    ul li { margin: 6px 0; }
+    .exp-item { margin-bottom: 20px; }
+    .exp-item h3 { margin-bottom: 6px; }
+    footer { text-align: center; padding: 30px 0; border-top: 1px solid #21262d; color: var(--muted); }
+    .icon-title { display: flex; align-items: center; gap: 8px; font-size: 1.2rem; }
+    .icon-title i { color: var(--accent); }
   </style>
 </head>
 <body>
-  <canvas id="matrix"></canvas>
-  <!-- Header -->
   <header>
-    <div class="container nav">
-      <div class="brand"><span class="dot"></span>&nbsp;Mihir Katre</div>
+    <div class="nav">
+      <div class="brand"><i class="fa-solid fa-shield-halved"></i> Mihir Katre</div>
       <nav>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#certs">Certs</a>
+        <a href="#certs">Certifications</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="container hero">
-    <div>
-      <span class="badge">Cybersecurity • Cloud • SOC</span>
-      <h1 class="head-xl">Hi, I’m Mihir Katre</h1>
-      <p class="muted">Cybersecurity Analyst with 4+ years in SOC, IR, and Cloud Security. Skilled at detection engineering, automation, and offensive/defensive security.</p>
-      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
-        <a class="btn" href="assets/resume.pdf" download>Download CV</a>
-        <a class="btn ghost" href="#contact">Contact</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/mihir-katre/" target="_blank">LinkedIn</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Key Highlights</h3>
-      <ul class="bullets">
-        <li>24/7 SOC exposure (Splunk, Sentinel, SIEM/SOAR)</li>
-        <li>Multi-cloud security: AWS, Azure, GCP</li>
-        <li>Zero Trust IAM & network hardening</li>
-        <li>AppSec with OWASP & CI/CD integration</li>
-      </ul>
+  <section class="container" id="hero">
+    <h1><i class="fa-solid fa-lock"></i> Cybersecurity Professional</h1>
+    <p class="lead">I specialize in protecting organizations through SOC operations, incident response, cloud security, and application security. Experienced across AWS, Azure, GCP, and with proven results in improving compliance and reducing vulnerabilities.</p>
+    <div style="margin-top: 20px;">
+      <a href="assets/resume.pdf" class="btn primary" download><i class="fa-solid fa-download"></i> Download Resume</a>
+      <a href="#contact" class="btn outline"><i class="fa-solid fa-envelope"></i> Contact Me</a>
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="section container">
-    <h2>About Me</h2>
-    <p>My passion is defending organizations against real-world threats. I specialize in SOC operations, cloud security, and incident response. Previously at Deloitte, Tyler Technologies, and LTIMindtree, I cut vulnerabilities by 65% and reduced containment time by 35%.</p>
+  <section class="container" id="about">
+    <h2><i class="fa-solid fa-user-secret"></i> About Me</h2>
+    <p>I’m Mihir Katre, a cybersecurity analyst with hands-on expertise in SOC operations, cloud security, and detection engineering. I’ve worked at Deloitte, Tyler Technologies, and LTIMindtree, reducing exploitable flaws by 65%, improving audit outcomes by 60%, and cutting incident containment time by 35%.</p>
   </section>
 
-  <!-- Skills -->
-  <section id="skills" class="section container">
-    <h2>Core Skills</h2>
+  <section class="container" id="skills">
+    <h2><i class="fa-solid fa-microchip"></i> Core Skills</h2>
     <div class="grid cols-3">
-      <div class="card"><strong>Detection & Response</strong><ul class="bullets"><li>SIEM/SOAR</li><li>Threat Hunting</li><li>MITRE ATT&CK</li></ul></div>
-      <div class="card"><strong>Cloud Security</strong><ul class="bullets"><li>AWS, Azure, GCP</li><li>KMS, CloudTrail, SCC</li><li>Network Security</li></ul></div>
-      <div class="card"><strong>Application Security</strong><ul class="bullets"><li>OWASP Top 10</li><li>SAST/DAST</li><li>API Hardening</li></ul></div>
+      <div class="card"><div class="icon-title"><i class="fa-solid fa-bullseye"></i><strong>Detection & Response</strong></div><ul><li>SIEM/SOAR</li><li>Threat Hunting</li><li>Incident Response</li></ul></div>
+      <div class="card"><div class="icon-title"><i class="fa-solid fa-cloud"></i><strong>Cloud Security</strong></div><ul><li>AWS, Azure, GCP</li><li>Zero Trust IAM</li><li>Network Hardening</li></ul></div>
+      <div class="card"><div class="icon-title"><i class="fa-solid fa-code"></i><strong>Application Security</strong></div><ul><li>OWASP Top 10</li><li>SAST/DAST</li><li>API Security</li></ul></div>
     </div>
   </section>
 
-  <!-- Experience -->
-  <section id="experience" class="section container">
-    <h2>Experience</h2>
-    <div class="exp-item"><h3>Tyler Technologies • Software Developer</h3><p class="muted">May 2024 – Present</p><ul class="bullets"><li>Secured .NET 8 APIs, reduced flaws 65%</li><li>Integrated Snyk, Burp, SonarQube</li><li>Improved audit outcomes by 60%</li></ul></div>
-    <div class="exp-item"><h3>Deloitte • Cloud Security Consultant</h3><p class="muted">Sep 2022 – Jul 2023</p><ul class="bullets"><li>Led multi-cloud security, achieved 93% compliance</li><li>Implemented Zero Trust IAM</li><li>Hardened WAF, Firewalls, VPNs</li></ul></div>
-    <div class="exp-item"><h3>LTIMindtree • Cloud Security Engineer</h3><p class="muted">Jun 2020 – Mar 2022</p><ul class="bullets"><li>Threat modeling & log analysis</li><li>Automated SOC workflows</li><li>Cut containment time by 35%</li></ul></div>
+  <section class="container" id="experience">
+    <h2><i class="fa-solid fa-briefcase"></i> Experience</h2>
+    <div class="exp-item"><h3>Software Developer — Tyler Technologies</h3><p class="lead">May 2024 – Present</p><ul><li>Reduced exploitable flaws by 65% through secure development practices.</li><li>Integrated security tools (Snyk, Burp, SonarQube) into CI/CD.</li><li>Improved audit outcomes by 60% by remediating access gaps.</li></ul></div>
+    <div class="exp-item"><h3>Cloud Security Consultant — Deloitte</h3><p class="lead">Sep 2022 – Jul 2023</p><ul><li>Led multi-cloud security architecture achieving 93% compliance.</li><li>Implemented Zero Trust IAM and hardened perimeter defenses.</li></ul></div>
+    <div class="exp-item"><h3>Cloud Security Engineer — LTIMindtree</h3><p class="lead">Jun 2020 – Mar 2022</p><ul><li>Mitigated 95% of critical vulns pre-deployment with threat modeling.</li><li>Automated SOC workflows, saving 70% analyst effort.</li><li>Cut containment time by 35% with faster incident response.</li></ul></div>
   </section>
 
-  <!-- Projects -->
-  <section id="projects" class="section container">
-    <h2>Projects</h2>
+  <section class="container" id="projects">
+    <h2><i class="fa-solid fa-diagram-project"></i> Projects</h2>
     <div class="grid cols-2">
-      <div class="card"><strong>Multi-Cloud Monitoring Tool</strong><p class="muted">NSA Collaboration</p><ul class="bullets"><li>Telemetry across AWS, GCP, Azure</li><li>30% more actionable detections</li></ul></div>
-      <div class="card"><strong>Offensive Security Simulation</strong><p class="muted">Albany, NY</p><ul class="bullets"><li>Pen-tested OWASP Top 10</li><li>Improved playbooks with MITRE ATT&CK</li></ul></div>
+      <div class="card"><h3><i class="fa-solid fa-network-wired"></i> Multi-Cloud Monitoring Tool</h3><p class="lead">NSA Collaboration</p><ul><li>Built real-time telemetry monitoring across AWS, Azure, GCP.</li><li>Increased actionable detections by 30%.</li></ul></div>
+      <div class="card"><h3><i class="fa-solid fa-user-ninja"></i> Offensive Security Simulation</h3><p class="lead">Albany, NY</p><ul><li>Pen-tested OWASP Top 10 flaws, reducing exposure by 50% post-remediation.</li><li>Enhanced incident response playbooks with MITRE ATT&CK mapping.</li></ul></div>
     </div>
   </section>
 
-  <!-- Certs -->
-  <section id="certs" class="section container">
-    <h2>Education & Certifications</h2>
+  <section class="container" id="certs">
+    <h2><i class="fa-solid fa-certificate"></i> Education & Certifications</h2>
     <div class="grid cols-2">
-      <div class="card"><strong>University at Albany, SUNY</strong><p>M.S. Digital Forensics & Cybersecurity • GPA 3.97</p></div>
-      <div class="card"><strong>Certifications</strong><div class="chip">AWS Cloud Practitioner</div><div class="chip">Azure Admin (AZ-104)</div><div class="chip">CompTIA Security+ (in-progress)</div></div>
+      <div class="card"><h3><i class="fa-solid fa-graduation-cap"></i> University at Albany, SUNY</h3><p>M.S. Digital Forensics & Cybersecurity — GPA 3.97</p></div>
+      <div class="card"><h3><i class="fa-solid fa-award"></i> Certifications</h3><ul><li>AWS Cloud Practitioner</li><li>Azure Administrator (AZ-104)</li><li>CompTIA Security+ (in progress)</li></ul></div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="section container">
-    <h2>Contact</h2>
+  <section class="container" id="contact">
+    <h2><i class="fa-solid fa-envelope"></i> Contact</h2>
     <div class="card">
-      <p>📧 <a href="mailto:mihirkatre@gmail.com">mihirkatre@gmail.com</a></p>
-      <p>📱 518-708-1649</p>
-      <p>🔗 <a href="https://www.linkedin.com/in/mihir-katre/" target="_blank">LinkedIn</a></p>
+      <p><i class="fa-solid fa-paper-plane"></i> Email: <a href="mailto:mihirkatre@gmail.com">mihirkatre@gmail.com</a></p>
+      <p><i class="fa-solid fa-phone"></i> Phone: 518-708-1649</p>
+      <p><i class="fa-brands fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/mihir-katre/" target="_blank">linkedin.com/in/mihir-katre</a></p>
     </div>
   </section>
 
-  <footer>© <span id="year"></span> Mihir Katre — Cybersecurity Portfolio</footer>
+  <footer>
+    © <span id="year"></span> Mihir Katre. All Rights Reserved.
+  </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear()
-
-    // Matrix rain background
-    const canvas = document.getElementById("matrix");
-    const ctx = canvas.getContext("2d");
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
-    const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&*+-".split("");
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops = [];
-    for(let x = 0; x < columns; x++) drops[x] = 1;
-    function draw(){
-      ctx.fillStyle = "rgba(10,15,28,0.1)";
-      ctx.fillRect(0,0,canvas.width,canvas.height);
-      ctx.fillStyle = "#00f7ff";
-      ctx.font = fontSize + "px monospace";
-      for(let i=0; i < drops.length; i++){
-        const text = letters[Math.floor(Math.random()*letters.length)];
-        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
-        if(drops[i]*fontSize > canvas.height && Math.random() > 0.975) drops[i]=0;
-        drops[i]++;
-      }
-    }
-    setInterval(draw,33);
-
-    window.addEventListener('resize', ()=>{
-      canvas.height = window.innerHeight;
-      canvas.width = window.innerWidth;
-    });
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
