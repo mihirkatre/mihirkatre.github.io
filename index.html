@@ -15,37 +15,40 @@
       --muted: #8b949e;
       --brand: #3fb950;
       --accent: #58a6ff;
+      --gradient: linear-gradient(135deg, #3fb950, #58a6ff);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
     a { color: var(--accent); text-decoration: none; }
-    header { background: var(--panel); border-bottom: 1px solid #21262d; position: sticky; top: 0; z-index: 10; }
+    header { background: rgba(13, 17, 23, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #21262d; position: sticky; top: 0; z-index: 10; }
     .nav { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; padding: 16px 20px; }
-    .nav a { margin: 0 12px; font-weight: 500; color: var(--text); }
+    .nav a { margin: 0 12px; font-weight: 500; color: var(--text); transition: color 0.2s; }
     .nav a:hover { color: var(--accent); }
-    .brand { font-weight: 700; color: var(--brand); font-size: 1.2rem; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 60px 20px; position: relative; }
-    h1 { font-size: 2.6rem; font-weight: 700; margin-bottom: 12px; }
-    h2 { font-size: 1.8rem; font-weight: 600; margin-bottom: 16px; color: var(--brand); position: relative; }
-    h2::after { content: ""; display: block; width: 60px; height: 3px; background: var(--accent); margin-top: 6px; border-radius: 2px; }
-    p.lead { font-size: 1.1rem; margin-bottom: 20px; color: var(--muted); }
-    .btn { display: inline-block; padding: 12px 18px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
-    .btn.primary { background: var(--brand); color: #fff; }
-    .btn.primary:hover { background: #2ea043; }
+    .brand { font-weight: 700; font-size: 1.3rem; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 70px 20px; position: relative; }
+    h1 { font-size: 2.8rem; font-weight: 700; margin-bottom: 12px; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    h2 { font-size: 1.9rem; font-weight: 600; margin-bottom: 16px; color: var(--brand); position: relative; }
+    h2::after { content: ""; display: block; width: 70px; height: 4px; background: var(--accent); margin-top: 8px; border-radius: 3px; }
+    p.lead { font-size: 1.15rem; margin-bottom: 20px; color: var(--muted); }
+    .btn { display: inline-block; padding: 12px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+    .btn.primary { background: var(--gradient); color: #fff; box-shadow: 0 4px 12px rgba(88,166,255,0.3); }
+    .btn.primary:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(88,166,255,0.5); }
     .btn.outline { border: 1px solid var(--accent); color: var(--accent); background: transparent; }
     .btn.outline:hover { background: rgba(88,166,255,0.1); }
-    .card { background: var(--panel); border: 1px solid #21262d; border-radius: 8px; padding: 20px; }
-    .grid { display: grid; gap: 20px; }
+    .card { background: var(--panel); border: 1px solid #21262d; border-radius: 10px; padding: 24px; transition: transform 0.3s, box-shadow 0.3s; }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); border-color: var(--accent); }
+    .grid { display: grid; gap: 24px; }
     .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
     .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
     @media(max-width:900px){ .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; } }
-    ul { padding-left: 18px; }
-    ul li { margin: 6px 0; }
-    .exp-item { margin-bottom: 20px; }
+    ul { padding-left: 20px; }
+    ul li { margin: 8px 0; }
+    .exp-item { margin-bottom: 26px; padding-left: 14px; border-left: 3px solid var(--accent); }
     .exp-item h3 { margin-bottom: 6px; }
-    footer { text-align: center; padding: 30px 0; border-top: 1px solid #21262d; color: var(--muted); }
-    .icon-title { display: flex; align-items: center; gap: 8px; font-size: 1.2rem; }
-    .icon-title i { color: var(--accent); }
+    footer { text-align: center; padding: 30px 0; border-top: 1px solid #21262d; color: var(--muted); margin-top: 40px; }
+    .icon-title { display: flex; align-items: center; gap: 8px; font-size: 1.2rem; margin-bottom: 10px; color: var(--accent); }
+    .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: radial-gradient(circle at top left, rgba(88,166,255,0.15), transparent 40%), radial-gradient(circle at bottom right, rgba(63,185,80,0.15), transparent 40%); }
+    .container > * { position: relative; z-index: 1; }
   </style>
 </head>
 <body>
@@ -64,9 +67,10 @@
   </header>
 
   <section class="container" id="hero">
+    <div class="hero-bg"></div>
     <h1><i class="fa-solid fa-lock"></i> Cybersecurity Professional</h1>
     <p class="lead">I specialize in protecting organizations through SOC operations, incident response, cloud security, and application security. Experienced across AWS, Azure, GCP, and with proven results in improving compliance and reducing vulnerabilities.</p>
-    <div style="margin-top: 20px;">
+    <div style="margin-top: 24px;">
       <a href="assets/resume.pdf" class="btn primary" download><i class="fa-solid fa-download"></i> Download Resume</a>
       <a href="#contact" class="btn outline"><i class="fa-solid fa-envelope"></i> Contact Me</a>
     </div>
@@ -80,9 +84,9 @@
   <section class="container" id="skills">
     <h2><i class="fa-solid fa-microchip"></i> Core Skills</h2>
     <div class="grid cols-3">
-      <div class="card"><div class="icon-title"><i class="fa-solid fa-bullseye"></i><strong>Detection & Response</strong></div><ul><li>SIEM/SOAR</li><li>Threat Hunting</li><li>Incident Response</li></ul></div>
-      <div class="card"><div class="icon-title"><i class="fa-solid fa-cloud"></i><strong>Cloud Security</strong></div><ul><li>AWS, Azure, GCP</li><li>Zero Trust IAM</li><li>Network Hardening</li></ul></div>
-      <div class="card"><div class="icon-title"><i class="fa-solid fa-code"></i><strong>Application Security</strong></div><ul><li>OWASP Top 10</li><li>SAST/DAST</li><li>API Security</li></ul></div>
+      <div class="card"><div class="icon-title"><i class="fa-solid fa-bullseye"></i> Detection & Response</div><ul><li>SIEM/SOAR</li><li>Threat Hunting</li><li>Incident Response</li></ul></div>
+      <div class="card"><div class="icon-title"><i class="fa-solid fa-cloud"></i> Cloud Security</div><ul><li>AWS, Azure, GCP</li><li>Zero Trust IAM</li><li>Network Hardening</li></ul></div>
+      <div class="card"><div class="icon-title"><i class="fa-solid fa-code"></i> Application Security</div><ul><li>OWASP Top 10</li><li>SAST/DAST</li><li>API Security</li></ul></div>
     </div>
   </section>
 
