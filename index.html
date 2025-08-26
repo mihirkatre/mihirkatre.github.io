@@ -11,13 +11,12 @@
   <style>
     :root{
       --bg:#0a0f1c; --panel:#121826; --muted:#9aa4b2; --text:#e8eef6; --brand:#00f7ff; --brand-2:#7c3aed; --ring: rgba(0,247,255,.35);
-      --light-bg:#f6f8fb; --light-panel:#ffffff; --light-text:#0c1220; --light-muted:#5b6b7e;
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
     h1,h2,h3,h4{font-family:"Space Mono",monospace}
     a{color:inherit;text-decoration:none}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
     header{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(10,15,28,.85);border-bottom:1px solid rgba(255,255,255,.08)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
     .brand{display:flex;align-items:center;font-weight:800;font-size:1.1rem;letter-spacing:.5px}
@@ -27,11 +26,11 @@
     .btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;border:none;padding:12px 18px;border-radius:10px;font-weight:600;cursor:pointer;transition:.2s}
     .btn:hover{box-shadow:0 0 18px var(--brand)}
     .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.25);color:var(--text)}
-    .hero{padding:80px 0 60px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+    .hero{padding:100px 0 80px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;position:relative;z-index:2}
     @media(max-width:900px){.hero{grid-template-columns:1fr}}
     .card{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:24px;transition:.25s}
     .card:hover{border-color:var(--brand)}
-    .section{padding:50px 0}
+    .section{padding:60px 0;position:relative;z-index:2}
     .section h2{font-size:1.8rem;margin-bottom:14px;color:var(--brand)}
     .muted{color:var(--muted)}
     .grid{display:grid;gap:20px}
@@ -40,14 +39,20 @@
     @media(max-width:900px){.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}}
     .bullets{padding-left:20px;margin-top:8px}
     .bullets li{margin:8px 0}
-    .exp-item{padding:18px;border-left:3px solid var(--brand);background:rgba(255,255,255,.03);border-radius:10px}
+    .exp-item{padding:18px;border-left:3px solid var(--brand);background:rgba(255,255,255,.03);border-radius:10px;margin-bottom:16px}
     .chip,.tag{display:inline-block;background:rgba(0,247,255,.08);padding:6px 10px;border-radius:999px;margin:6px 6px 0 0;border:1px solid rgba(0,247,255,.2);font-size:.85rem}
-    footer{padding:40px 0;color:var(--muted);text-align:center;border-top:1px solid rgba(255,255,255,.08)}
-    .head-xl{font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.2;margin:12px 0;background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;color:transparent}
+    footer{padding:40px 0;color:var(--muted);text-align:center;border-top:1px solid rgba(255,255,255,.08);position:relative;z-index:2}
+    .head-xl{font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.2;margin:12px 0;background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;color:transparent;white-space:nowrap;overflow:hidden;border-right:3px solid var(--brand);animation:typing 4s steps(40,end), blink .75s step-end infinite}
     .badge{font-size:.8rem;padding:6px 12px;border-radius:999px;background:rgba(124,58,237,.25);margin-bottom:10px;display:inline-block}
+    /* Typing effect */
+    @keyframes typing{from{width:0}to{width:100%}}
+    @keyframes blink{50%{border-color:transparent}}
+    /* Matrix background */
+    canvas#matrix{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;background:var(--bg)}
   </style>
 </head>
 <body>
+  <canvas id="matrix"></canvas>
   <!-- Header -->
   <header>
     <div class="container nav">
@@ -114,7 +119,7 @@
   <section id="projects" class="section container">
     <h2>Projects</h2>
     <div class="grid cols-2">
-      <div class="card"><strong>Multi‑Cloud Monitoring Tool</strong><p class="muted">NSA Collaboration</p><ul class="bullets"><li>Telemetry across AWS, GCP, Azure</li><li>30% more actionable detections</li></ul></div>
+      <div class="card"><strong>Multi-Cloud Monitoring Tool</strong><p class="muted">NSA Collaboration</p><ul class="bullets"><li>Telemetry across AWS, GCP, Azure</li><li>30% more actionable detections</li></ul></div>
       <div class="card"><strong>Offensive Security Simulation</strong><p class="muted">Albany, NY</p><ul class="bullets"><li>Pen-tested OWASP Top 10</li><li>Improved playbooks with MITRE ATT&CK</li></ul></div>
     </div>
   </section>
@@ -133,13 +138,44 @@
     <h2>Contact</h2>
     <div class="card">
       <p>📧 <a href="mailto:mihirkatre@gmail.com">mihirkatre@gmail.com</a></p>
-      <p>📱 518‑708‑1649</p>
+      <p>📱 518-708-1649</p>
       <p>🔗 <a href="https://www.linkedin.com/in/mihir-katre/" target="_blank">LinkedIn</a></p>
     </div>
   </section>
 
   <footer>© <span id="year"></span> Mihir Katre — Cybersecurity Portfolio</footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear()
+
+    // Matrix rain background
+    const canvas = document.getElementById("matrix");
+    const ctx = canvas.getContext("2d");
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&*+-".split("");
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = [];
+    for(let x = 0; x < columns; x++) drops[x] = 1;
+    function draw(){
+      ctx.fillStyle = "rgba(10,15,28,0.1)";
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle = "#00f7ff";
+      ctx.font = fontSize + "px monospace";
+      for(let i=0; i < drops.length; i++){
+        const text = letters[Math.floor(Math.random()*letters.length)];
+        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+        if(drops[i]*fontSize > canvas.height && Math.random() > 0.975) drops[i]=0;
+        drops[i]++;
+      }
+    }
+    setInterval(draw,33);
+
+    window.addEventListener('resize', ()=>{
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+    });
+  </script>
 </body>
 </html>
