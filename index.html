@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mihir Katre — Cybersecurity Portfolio</title>
+  <meta name="description" content="Cybersecurity Analyst with 4+ years in SOC, IR, and Cloud Security across AWS, Azure, and GCP. Portfolio, experience, projects, and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0d10; --panel:#12151a; --muted:#9aa4b2; --text:#e8eef6; --brand:#7c3aed; --brand-2:#22d3ee; --ring: rgba(124,58,237,.35);
+      --light-bg:#f6f8fb; --light-panel:#ffffff; --light-text:#0c1220; --light-muted:#5b6b7e;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);}
+    .light body{background:var(--light-bg);color:var(--light-text)}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(10px);}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+    .brand .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 0 0 6px var(--ring)}
+    .nav a{opacity:.9;margin:0 12px}
+    .nav a:hover{opacity:1}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;border:none;padding:12px 16px;border-radius:12px;font-weight:600;box-shadow:0 10px 24px rgba(124,58,237,.25);cursor:pointer}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--text)}
+    .btn.small{padding:8px 12px;border-radius:10px}
+    .hero{padding:72px 0 40px;display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:center}
+    @media (max-width:900px){.hero{grid-template-columns:1fr;}}
+    .card{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:22px}
+    .light .card{background:var(--light-panel);border-color:#e9eef5}
+    .muted{color:var(--muted)}
+    .section{padding:28px 0}
+    .section h2{font-size:1.65rem;margin:0 0 10px}
+    .section p.lead{margin:6px 0 14px;color:var(--muted)}
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .kpi{padding:18px;border-radius:16px;background:linear-gradient(180deg,rgba(124,58,237,.12),rgba(34,211,238,.08));border:1px solid rgba(124,58,237,.25)}
+    .kpi .num{font-size:1.6rem;font-weight:800}
+    .tag{display:inline-flex;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);margin:6px 8px 0 0;font-size:.85rem}
+    .grid{display:grid;gap:16px}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    @media (max-width:900px){.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}}
+    .exp{display:grid;gap:12px}
+    .exp-item{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:start;padding:16px;border:1px dashed rgba(255,255,255,.14);border-radius:14px}
+    .light .exp-item{border-color:#d8e2ef}
+    .exp-item h3{margin:0 0 4px;font-size:1.02rem}
+    .exp-item .where{font-weight:600}
+    .bullets{margin:8px 0 0;padding-left:18px}
+    .bullets li{margin:6px 0}
+    footer{padding:40px 0;color:var(--muted);text-align:center}
+    .chip{display:inline-block;background:rgba(255,255,255,.06);padding:8px 10px;border-radius:999px;margin:6px 6px 0 0;border:1px solid rgba(255,255,255,.1)}
+    .light .chip{background:#f4f7fb;border-color:#e3eaf3}
+    .toggle{border:1px solid rgba(255,255,255,.14);padding:8px 10px;border-radius:12px;cursor:pointer}
+    .light .toggle{border-color:#dbe5f0}
+    .head-xl{font-size:clamp(2rem,6vw,3.3rem);line-height:1.05;margin:6px 0}
+    .sub{opacity:.85}
+    .pillbar{display:flex;flex-wrap:wrap;gap:8px}
+    .link{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15);padding:8px 12px;border-radius:12px}
+    .light .link{border-color:#dbe5f0}
+    .badge{font-size:.78rem;padding:6px 10px;border-radius:999px;background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.35)}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand"><span class="dot"></span> <span>MK</span></div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#certs">Certs</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button id="themeToggle" class="toggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="container hero">
+    <div>
+      <span class="badge">Cybersecurity • Cloud • SOC</span>
+      <h1 class="head-xl">Hi, I'm <span style="background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent">Mihir Katre</span></h1>
+      <p class="sub">Cybersecurity Analyst with 4+ years in SOC operations, incident response, and cloud security across AWS, Azure, and GCP. I design detections, automate response, and harden apps & infra to keep threats out.</p>
+      <div style="display:flex;gap:12px;margin-top:14px;flex-wrap:wrap">
+        <a class="btn" href="assets/resume.pdf" download>Download CV</a>
+        <a class="btn ghost" href="#contact">Contact Info</a>
+        <a class="link" href="https://www.linkedin.com/in/mihir-katre/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      </div>
+      <div class="kpis" style="margin-top:18px">
+        <div class="kpi"><div class="num">4+ yrs</div><div class="muted">Security Experience</div></div>
+        <div class="kpi"><div class="num">93%</div><div class="muted">Cloud Compliance Achieved</div></div>
+        <div class="kpi"><div class="num">70%</div><div class="muted">IR/SOC Automation Load Saved</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="margin:0 0 6px">Quick Highlights</h3>
+      <ul class="bullets">
+        <li>24/7 SOC exposure, SIEM (Splunk, Sentinel), SOAR & automation.</li>
+        <li>Cloud security across AWS, Azure, GCP; Zero Trust IAM & network hardening.</li>
+        <li>Adversary simulation & threat hunting aligned to MITRE ATT&CK.</li>
+        <li>.NET 8 API security, OWASP controls, SAST/DAST in CI/CD.</li>
+      </ul>
+      <div class="pillbar" style="margin-top:10px">
+        <span class="chip">Albany, NY</span>
+        <span class="chip">mihirkatre@gmail.com</span>
+        <span class="chip">518‑708‑1649</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section container">
+    <h2>About Me</h2>
+    <p class="lead">I help teams detect, analyze, and shut down threats. In prior roles at Tyler Technologies, Deloitte, and LTIMindtree, I reduced exploitable flaws by <strong>65%</strong>, improved audit outcomes by <strong>60%</strong>, and cut containment time by <strong>35%</strong> by combining good engineering with good security.</p>
+    <div class="grid cols-3">
+      <div class="card">
+        <strong>Strengths</strong>
+        <ul class="bullets">
+          <li>Signal-first detection engineering & runbook automation</li>
+          <li>Hands-on incident response & forensic analysis</li>
+          <li>Cloud-native security (KMS, CloudTrail, Security Hub, Sentinel)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>Domains</strong>
+        <ul class="bullets">
+          <li>SOC Monitoring • Threat Hunting • Adversary Simulation</li>
+          <li>AppSec • OWASP Top 10 • API hardening • SAST/DAST</li>
+          <li>Compliance: SOC 2 • PCI-DSS • ISO 27001 • NIST CSF</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>Tooling</strong>
+        <ul class="bullets">
+          <li>Splunk, Sentinel, SCC • Burp, Nessus, Wireshark, Metasploit</li>
+          <li>Python, PowerShell, Bash • C#, .NET, JS</li>
+          <li>WAF, IDS/IPS, Firewalls • VPC Flow Logs</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section container">
+    <h2>Skills</h2>
+    <p class="lead">Breadth across detection, response, and cloud; depth in automation.</p>
+    <div class="grid cols-3">
+      <div class="card">
+        <strong>Security Monitoring & SOC</strong>
+        <div class="pillbar">
+          <span class="tag">SIEM (Splunk/Sentinel)</span>
+          <span class="tag">SOAR</span>
+          <span class="tag">Log / Packet Analysis</span>
+          <span class="tag">Triage & Escalation</span>
+        </div>
+      </div>
+      <div class="card">
+        <strong>Threat Detection & Response</strong>
+        <div class="pillbar">
+          <span class="tag">MITRE ATT&CK</span>
+          <span class="tag">Threat Hunting</span>
+          <span class="tag">Malware/Forensics</span>
+          <span class="tag">Adversary Simulation</span>
+        </div>
+      </div>
+      <div class="card">
+        <strong>Cloud & Application Security</strong>
+        <div class="pillbar">
+          <span class="tag">AWS (KMS, CloudTrail)</span>
+          <span class="tag">Azure (Sentinel, KV)</span>
+          <span class="tag">GCP (Logging, SCC)</span>
+          <span class="tag">Container/Serverless</span>
+        </div>
+      </div>
+      <div class="card">
+        <strong>Network & Infra</strong>
+        <div class="pillbar">
+          <span class="tag">TCP/IP • DNS • HTTP/S</span>
+          <span class="tag">WAF • IDS/IPS • VPN</span>
+          <span class="tag">VPC Flow Logs</span>
+        </div>
+      </div>
+      <div class="card">
+        <strong>Automation & Dev</strong>
+        <div class="pillbar">
+          <span class="tag">Python</span>
+          <span class="tag">PowerShell</span>
+          <span class="tag">Bash</span>
+          <span class="tag">C# / .NET 8</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </div>
+      <div class="card">
+        <strong>Compliance & Risk</strong>
+        <div class="pillbar">
+          <span class="tag">SOC 2</span>
+          <span class="tag">PCI-DSS</span>
+          <span class="tag">ISO 27001</span>
+          <span class="tag">NIST CSF</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="section container">
+    <h2>Experience</h2>
+    <div class="exp">
+      <div class="exp-item">
+        <div class="muted">May 2024 – Present</div>
+        <div>
+          <h3>Software Developer • <span class="where">Tyler Technologies</span></h3>
+          <ul class="bullets">
+            <li>Embedded OWASP-based controls; reduced exploitable flaws <strong>65%</strong>.</li>
+            <li>Integrated Snyk, DataDog, Burp, SonarQube into CI/CD for continuous monitoring.</li>
+            <li>Engineered secure .NET 8 API preventing SSRF; reduced unauthorized access <strong>70%</strong>.</li>
+            <li>Vuln assessments across apps/infra; cut critical flaws <strong>45%</strong>.</li>
+            <li>Partnered with Audit/Compliance to remediate access gaps; audit findings down <strong>60%</strong>.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="muted">Sep 2022 – Jul 2023</div>
+        <div>
+          <h3>Consultant – Cloud Security & Engineering • <span class="where">Deloitte</span></h3>
+          <ul class="bullets">
+            <li>Led multi-cloud security architecture (Azure/AWS); achieved <strong>93%</strong> compliance.</li>
+            <li>Ran security gap assessments and drove remediation to completion.</li>
+            <li>Implemented Zero Trust IAM; prevented credential misuse/exposure.</li>
+            <li>Hardened WAF, VPN, Firewalls, IDPS to minimize disruptions.</li>
+            <li>Automated AppSec with SonarQube SAST in DevSecOps pipeline.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="muted">Jun 2020 – Mar 2022</div>
+        <div>
+          <h3>Cloud Security Engineer • <span class="where">LTIMindtree</span></h3>
+          <ul class="bullets">
+            <li>Threat modeling & log analysis; mitigated <strong>95%</strong> of critical vulns pre‑deploy.</li>
+            <li>Mapped controls to SOC 2 & ISO 27001; supported external audits.</li>
+            <li>Automated SOC workflows (Python/PowerShell) saving analyst effort <strong>70%</strong>.</li>
+            <li>Implemented/monitored Azure Firewall, NSG & AWS Network Firewall.</li>
+            <li>Supported IR; containment/eradication time cut <strong>35%</strong>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section container">
+    <h2>Projects</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <strong>Multi‑Cloud Monitoring Tool <span class="badge" style="margin-left:8px">NSA Collaboration</span></strong>
+        <p class="muted">Aug 2023 – Jan 2024 • Albany, NY</p>
+        <ul class="bullets">
+          <li>Real‑time security telemetry across AWS, GCP, Azure for threat indicators & IAM drift.</li>
+          <li>Ingested CloudTrail, Azure Activity, VPC Flow, GuardDuty & SCC via C#, SQL, PowerShell & Vue.js.</li>
+          <li>Increased actionable detections by <strong>30%</strong>; aligned to NIST & CIS controls.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>Offensive Security Simulation & Pen Testing</strong>
+        <p class="muted">Aug 2024 – May 2025 • Albany, NY</p>
+        <ul class="bullets">
+          <li>Exploited OWASP Top 10, privilege escalation, SSRF, IDOR with Burp, Metasploit, Nmap, OpenVAS.</li>
+          <li>Executed red/blue/purple team exercises; exposure reduced ~<strong>50%</strong> post‑remediation.</li>
+          <li>Improved response playbooks via adversary TTPs mapped to MITRE ATT&CK.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community / CTF -->
+  <section id="community" class="section container">
+    <h2>CTF & Community</h2>
+    <ul class="bullets">
+      <li>Top 15% in Cyber Seed, CDO, picoCTF (exploitation, privesc, reverse engineering).</li>
+      <li>100+ hands‑on labs (DVWA, TryHackMe, HTB): SQLi, XSS, CSRF, IDOR, SSRF, LFI/RFI, deserialization.</li>
+      <li>Wrote public walkthroughs and scripts (Python, Bash, PowerShell) for PoCs & automation.</li>
+    </ul>
+  </section>
+
+  <!-- Education & Certs -->
+  <section id="certs" class="section container">
+    <div class="grid cols-2">
+      <div class="card">
+        <h3 style="margin-top:0">Education</h3>
+        <p><strong>University at Albany, SUNY</strong> — M.S. Digital Forensics & Cybersecurity (May 2025) • GPA 3.97</p>
+        <p class="muted">Coursework: Cloud & Network Security, Web AppSec, Pen Testing, Threat Hunting, Vulnerability Exploitation.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Certifications</h3>
+        <div class="pillbar">
+          <span class="chip">AWS Technical Professional</span>
+          <span class="chip">AWS Cloud Practitioner</span>
+          <span class="chip">Azure Fundamentals (AZ‑900)</span>
+          <span class="chip">Azure Administrator (AZ‑104)</span>
+          <span class="chip">CompTIA Security+ (In‑Progress)</span>
+          <span class="chip">RH Ansible Specialist</span>
+          <span class="chip">Java Level 1 & 2 (CCA)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section container">
+    <h2>Contact</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <p>Open to Security Engineer, Detection/Response, and Cloud Security roles.</p>
+        <div class="pillbar">
+          <a class="link" href="mailto:mihirkatre@gmail.com">📧 mihirkatre@gmail.com</a>
+          <a class="link" href="tel:+15187081649">📱 518‑708‑1649</a>
+          <a class="link" href="https://www.linkedin.com/in/mihir-katre/" target="_blank" rel="noreferrer">🔗 LinkedIn</a>
+        </div>
+      </div>
+      <div class="card">
+        <p class="muted">Prefer a PDF? Grab my resume below.</p>
+        <a class="btn" href="assets/resume.pdf" download>Download Resume PDF</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Mihir Katre. All Rights Reserved.
+  </footer>
+
+  <script>
+    // Theme toggle (persist in localStorage)
+    const rootHtml = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    if(saved === 'light'){ rootHtml.classList.add('light'); themeToggle.textContent = '🌞'; }
+    themeToggle.addEventListener('click', ()=>{
+      rootHtml.classList.toggle('light');
+      const isLight = rootHtml.classList.contains('light');
+      themeToggle.textContent = isLight ? '🌞' : '🌙';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
