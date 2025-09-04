@@ -104,6 +104,7 @@
             box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);
             position: relative;
             overflow: hidden;
+            z-index: 10;
         }
         
         .download-btn::before {
@@ -167,22 +168,20 @@
             align-items: center;
             gap: 0.5rem;
             color: var(--text-secondary);
-            transition: color 0.3s;
+            transition: color 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+            z-index: 5;
         }
         
+        /* Fix for clickable links */
         .contact-item:hover {
             color: var(--success);
         }
         
-        .contact-item a {
-            color: inherit;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .contact-item a:hover {
-            color: var(--success);
-            text-decoration: underline;
+        .contact-item.non-link {
+            cursor: default;
         }
         
         /* Key Qualifications */
@@ -520,6 +519,7 @@
 <body>
     <div class="container">
         <!-- Header -->
+        <!-- Header -->
         <header class="header">
             <div class="header-top">
                 <div class="header-left">
@@ -544,12 +544,12 @@
                 Adept at partnering with developers, infrastructure teams, and stakeholders to deliver scalable, secure solutions that balance business needs with strong security practices.
             </p>
             <div class="contact-info">
-                <span class="contact-item">📍 New York</span>
-                <a href="mailto:mihirkatre@gmail.com" class="contact-item" style="text-decoration: none;">
+                <span class="contact-item non-link">📍 New York</span>
+                <a href="mailto:mihirkatre@gmail.com" class="contact-item">
                     ✉️ mihirkatre@gmail.com
                 </a>
-                <span class="contact-item">📱 (518) 708-1649</span>
-                <a href="https://www.linkedin.com/in/mihir-katre/" target="_blank" rel="noopener noreferrer" class="contact-item" style="text-decoration: none;">
+                <span class="contact-item non-link">📱 (518) 708-1649</span>
+                <a href="https://www.linkedin.com/in/mihir-katre/" target="_blank" rel="noopener noreferrer" class="contact-item">
                     🔗 linkedin.com/in/mihir-katre/
                 </a>
             </div>
