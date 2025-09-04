@@ -1,307 +1,382 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mihir Katre — Security Engineer</title>
-  <meta name="description" content="Security Engineer focused on application & cloud security, risk assessments across on‑prem and cloud." />
-  <meta name="theme-color" content="#0a0e13" />
-  <meta property="og:title" content="Mihir Katre — Security Engineer" />
-  <meta property="og:description" content="Application + cloud security, KRIs, CIA, NIST/CIS, detection uplift. Portfolio aligned to security engineering roles." />
-  <meta property="og:type" content="website" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-Sx9BUo5bJzO7xXn6qf9h4M3J7E8x3o5b0y7nGq8mYl2M1mmdWqU5f8M3wFZg3tN1zB4w7r8h7E4Qf3i3wY8S/g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta name="description" content="Security Engineer specializing in application & cloud security, security assessments, detection tuning, and risk reduction across on‑prem and cloud." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* ===== THEME ===== */
     :root {
-      --bg-primary: #0a0e13;
-      --bg-secondary: #131828;
-      --bg-tertiary: #1b2135;
-      --text-primary: #ffffff;
-      --text-secondary: #c0c8dc;
-      --text-muted: #8791a7;
-      --accent-primary: #00d4ff;
-      --accent-secondary: #0ea5e9;
-      --success: #10b981;
-      --warning: #f59e0b;
-      --danger: #ef4444;
-      --border: rgba(255, 255, 255, 0.12);
-      --glow: rgba(0, 212, 255, 0.18);
-      --navbar-height: 76px;
-      --radius: 16px;
+      --bg: #f8fafc;          /* light slate */
+      --card: #ffffff;
+      --text: #0f172a;        /* slate-900 */
+      --muted: #475569;       /* slate-600 */
+      --border: #e2e8f0;      /* slate-200 */
+      --accent: #0ea5e9;      /* sky-500 */
+      --accent-2: #00d4ff;    /* cyan */
+      --good: #059669;        /* green-600 */
+      --warn: #b45309;        /* amber-700 */
+      --danger: #dc2626;      /* red-600 */
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(2, 6, 23, .08);
+      --shadow-soft: 0 6px 18px rgba(2, 6, 23, .06);
     }
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: var(--navbar-height); }
+    [data-theme="dark"] {
+      --bg: #0b1220;          /* deep navy */
+      --card: #0f172a;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --border: #1f2937;
+      --accent: #7dd3fc;
+      --accent-2: #22d3ee;
+      --good: #34d399;
+      --warn: #fbbf24;
+      --danger: #f87171;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --shadow-soft: 0 6px 18px rgba(0,0,0,.3);
+    }
+
+    /* ===== RESET / BASE ===== */
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.65;
       margin: 0;
-      font-size: 17px;
-      letter-spacing: 0.1px;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      font-size: 16.75px;
     }
-    /* A11y helpers */
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
 
-    /* Nav */
-    nav { position: fixed; inset: 0 0 auto 0; height: var(--navbar-height); backdrop-filter: blur(18px); background: rgba(10,14,19,.85); border-bottom: 1px solid var(--border); z-index: 50; }
-    .nav-inner { max-width: 1200px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; }
-    .brand { display:flex; align-items:center; gap:.6rem; font-weight:700; color: var(--accent-primary); text-decoration: none; }
-    .brand i { filter: drop-shadow(0 0 6px var(--glow)); }
-    .nav-links { display:flex; gap: 1.2rem; align-items:center; }
-    .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; padding: 8px 10px; border-radius: 8px; }
-    .nav-links a:hover, .nav-links a:focus { color: #fff; background: rgba(255,255,255,.04); outline: none; }
+    /* ===== LAYOUT ===== */
+    .grid {
+      display: grid; gap: 22px; align-items: start;
+      grid-template-columns: 340px 1fr;
+    }
+    @media (max-width: 980px) { .grid { grid-template-columns: 1fr; } }
 
-    /* Shell */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    section { padding: 80px 0; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-soft); }
+    .pad { padding: 22px; }
+    .stack > * + * { margin-top: 14px; }
 
-    /* Hero */
-    .hero { padding-top: calc(var(--navbar-height) + 24px); display:grid; place-items:center; background: radial-gradient(1200px 600px at 10% -10%, rgba(0,212,255,.08), transparent 60%), radial-gradient(900px 600px at 100% 0%, rgba(14,165,233,.08), transparent 60%); }
-    .hero-card { text-align:center; max-width: 980px; padding: 40px 28px; background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 10px 40px rgba(0,0,0,.25); }
-    .title { font-size: clamp(28px, 5vw, 48px); margin: 0 0 10px; background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); -webkit-background-clip:text; background-clip:text; color: transparent; }
-    .subtitle { color: var(--text-secondary); font-size: clamp(16px, 2.5vw, 20px); margin: 0 0 22px; }
-    .pill { display:inline-flex; align-items:center; gap: .5rem; padding: 8px 12px; border: 1px solid var(--border); border-radius: 999px; color: var(--text-secondary); background: rgba(255,255,255,.02); margin: 6px; }
+    /* ===== HEADER (STICKY SIDEBAR) ===== */
+    .sidebar { position: sticky; top: 24px; }
+    .name { font-size: 34px; font-weight: 700; letter-spacing: .2px; margin: 0; }
+    .title { color: var(--muted); font-weight: 600; }
+    .summary { color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid var(--border); border-radius: 999px; background: linear-gradient(180deg, rgba(2,6,23,.02), rgba(2,6,23,.01)); color: var(--muted); font-weight: 500; }
+    .cta { display:flex; gap: 10px; flex-wrap: wrap; }
+    .btn { display:inline-flex; align-items:center; gap:8px; padding: 11px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--card); box-shadow: var(--shadow-soft); font-weight: 600; color: var(--text); }
+    .btn.primary { background: linear-gradient(135deg, var(--accent-2), var(--accent)); color: #06101a; border: none; }
 
-    .cta { display:flex; gap: 12px; justify-content:center; margin-top: 22px; flex-wrap: wrap; }
-    .btn { display:inline-flex; align-items:center; gap:.6rem; border-radius: 10px; padding: 13px 18px; text-decoration:none; font-weight:600; }
-    .btn-primary { background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)); color:#000; }
-    .btn-ghost { border:1px solid var(--accent-primary); color: var(--accent-primary); }
+    /* ===== SECTION HEADERS ===== */
+    h2 { margin: 0 0 6px; font-size: 22px; }
+    .kicker { color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .12em; font-size: 12.5px; margin-bottom: 14px; }
+    .divider { height: 1px; background: var(--border); margin: 8px 0 16px; }
 
-    /* Section titles */
-    .section-title { text-align:center; font-size: 32px; margin: 0 0 26px; }
-    .section-kicker { text-align:center; color: var(--text-secondary); margin-bottom: 36px; }
+    /* ===== ROLE FIT SNAPSHOT ===== */
+    .chips { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+    @media (max-width: 640px){ .chips { grid-template-columns: 1fr; }}
+    .chip { display:flex; align-items:center; gap:10px; padding: 10px 12px; border:1px solid var(--border); border-radius: 12px; background: var(--card); box-shadow: var(--shadow-soft); color: var(--muted); }
+    .chip b { color: var(--text); }
 
-    /* 3-col grid */
-    .grid { display:grid; gap: 22px; }
-    .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    .card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; box-shadow: 0 6px 24px rgba(0,0,0,.2);}
+    /* ===== EXPERIENCE ===== */
+    .exp { display:grid; gap: 16px; }
+    .exp-item { border:1px solid var(--border); border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow); padding: 16px 18px; }
+    .exp-top { display:flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; align-items: baseline; }
+    .role { font-weight: 700; }
+    .company { color: var(--accent); font-weight: 600; }
+    .date { color: var(--muted); font-size: 14px; }
+    .bullets { margin: 10px 0 0 0; padding-left: 20px; }
+    .bullets li { margin: 6px 0; }
 
-    /* Experience timeline */
-    .timeline { position: relative; margin-top: 24px; }
-    .timeline::before { content:""; position:absolute; left: 22px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary)); }
-    .t-item { position: relative; margin-left: 56px; margin-bottom: 22px; background: var(--bg-secondary); border:1px solid var(--border); border-radius: var(--radius); padding: 18px 18px 14px; }
-    .t-item::before { content:""; position:absolute; left: -15px; top: 20px; width: 12px; height: 12px; background: var(--accent-primary); border-radius: 50%; box-shadow: 0 0 0 4px var(--bg-primary); }
-    .job { font-weight: 700; }
-    .meta { color: var(--accent-primary); margin: 4px 0; }
-    .date { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 10px; }
-    .bullets { padding-left: 18px; margin: 10px 0 0; }
-    .bullets li { margin: 6px 0; color: var(--text-secondary); }
+    /* ===== SKILLS ===== */
+    .skills { display:grid; gap: 12px; grid-template-columns: repeat(2, minmax(0,1fr)); }
+    @media (max-width: 720px){ .skills { grid-template-columns: 1fr; }}
+    .skill-card { border:1px solid var(--border); border-radius: var(--radius); background: var(--card); padding: 14px 16px; }
+    .skill-title { font-weight: 700; margin-bottom: 6px; }
+    .skill-list { margin:0; padding-left: 18px; color: var(--muted); }
+    .skill-list li { margin: 4px 0; }
 
-    /* JD Match */
-    .jd-match { display:grid; gap: 16px; grid-template-columns: repeat(2, 1fr); }
-    .jd-chip { display:flex; align-items:center; gap:.6rem; border:1px solid var(--border); background: rgba(255,255,255,.02); padding: 10px 12px; border-radius: 12px; color: var(--text-secondary); }
-    .jd-chip i { color: var(--success); }
+    /* ===== PROJECTS ===== */
+    .projects { display:grid; gap: 12px; grid-template-columns: repeat(2, minmax(0,1fr)); }
+    @media (max-width: 900px){ .projects { grid-template-columns: 1fr; }}
+    .proj { border:1px solid var(--border); border-radius: var(--radius); background: var(--card); padding: 16px; }
+    .proj h3 { margin: 0 0 6px; font-size: 18px; }
+    .meta-sm { color: var(--muted); font-size: 14px; }
 
-    /* Projects */
-    .project { border-left: 3px solid var(--accent-primary); padding-left: 14px; }
+    /* ===== FOOTER ===== */
+    footer { text-align:center; color: var(--muted); padding: 30px 0 10px; }
 
-    /* Contact */
-    .contact { text-align:center; }
-
-    /* Responsive */
-    @media (max-width: 980px) { .grid-3 { grid-template-columns: 1fr; } .jd-match { grid-template-columns: 1fr; } .timeline::before { left: 14px; } .t-item { margin-left: 44px; } .t-item::before { left: -11px; } }
+    /* ===== PRINT ===== */
+    @media print {
+      body { background: #ffffff; }
+      .btn, .toggle-theme { display:none !important; }
+      .card, .exp-item, .skill-card, .proj { box-shadow:none; }
+      a { color: #000; text-decoration: underline; }
+    }
   </style>
 </head>
 <body>
-  <!-- NAV -->
-  <nav aria-label="Primary">
-    <div class="nav-inner">
-      <a class="brand" href="#hero" aria-label="Home">
-        <i class="fas fa-shield-halved" aria-hidden="true"></i>
-        <span>Mihir Katre</span>
-      </a>
-      <div class="nav-links" role="navigation">
-        <a href="#about">About</a>
-        <a href="#skills">Expertise</a>
-        <a href="#role-fit">Role Fit</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
+  <div class="container">
+    <div class="grid">
+      <!-- ===== SIDEBAR ===== -->
+      <aside class="sidebar">
+        <div class="card pad stack">
+          <h1 class="name">Mihir Katre</h1>
+          <div class="title">Security Engineer — Application & Cloud</div>
+          <p class="summary">4+ years across application security, cloud security, and DevSecOps. I run <strong>security assessments</strong>, embed controls at design time, and uplift detection using KRIs and tuning. Compliance-minded (NIST, CIS, Zero Trust) with a track record of reducing vulnerabilities and improving response.</p>
+          <div class="tags">
+            <span class="tag">Security Assessments</span>
+            <span class="tag">Cloud + On‑prem</span>
+            <span class="tag">Detection Tuning</span>
+            <span class="tag">KRIs</span>
+            <span class="tag">NIST/CIS</span>
+            <span class="tag">CIA</span>
+          </div>
+          <div class="cta">
+            <a class="btn primary" href="assets/resume.pdf" download>Download Resume</a>
+            <a class="btn" href="#contact">Contact</a>
+            <button class="btn toggle-theme" type="button" aria-label="Toggle theme">Toggle Theme</button>
+          </div>
+          <div style="font-size:14px; color: var(--muted);">
+            New York • <a href="mailto:mihirkatre@gmail.com">mihirkatre@gmail.com</a> • (518) 708‑1649 • <a href="https://www.linkedin.com/in/mihir-katre/" target="_blank" rel="noopener">linkedin.com/in/mihir-katre</a>
+          </div>
+        </div>
 
-  <!-- HERO -->
-  <header class="hero" id="hero">
-    <div class="hero-card" role="banner">
-      <h1 class="title">Security Engineer — Application & Cloud</h1>
-      <p class="subtitle">Risk assessments • Secure-by-design architecture • Detection uplift • NIST/CIS • Zero Trust • CIA</p>
-      <div aria-label="Key outcomes" class="sr-only">Prevented 95% critical vulns pre‑deploy, 93% compliance, 30% faster response</div>
-      <div class="cta" role="group" aria-label="Primary actions">
-        <a class="btn btn-primary" href="assets/resume.pdf" download><i class="fas fa-file-arrow-down" aria-hidden="true"></i>Download Resume</a>
-        <a class="btn btn-ghost" href="#contact"><i class="fas fa-envelope" aria-hidden="true"></i>Contact</a>
-      </div>
-      <div class="cta" style="margin-top:10px">
-        <span class="pill"><i class="fas fa-circle-check" aria-hidden="true"></i> Security assessments (apps + infra)</span>
-        <span class="pill"><i class="fas fa-circle-check" aria-hidden="true"></i> KRIs & detection tuning</span>
-        <span class="pill"><i class="fas fa-circle-check" aria-hidden="true"></i> Cloud + on‑prem controls</span>
-      </div>
-    </div>
-  </header>
+        <div class="card pad stack" style="margin-top:22px;">
+          <div class="kicker">Role Fit Snapshot</div>
+          <div class="chips">
+            <div class="chip"><b>Security at design</b> — partner with dev/infra from the outset</div>
+            <div class="chip"><b>Assessments</b> — app & infra for business‑initiated projects</div>
+            <div class="chip"><b>Controls</b> — implement across cloud & on‑prem</div>
+            <div class="chip"><b>Detection uplift</b> — sensory tools, tuning, data access</div>
+            <div class="chip"><b>KRIs</b> — monitor, analyze trends, act early</div>
+            <div class="chip"><b>Risk comms</b> — succinct status & issue lifecycle</div>
+          </div>
+        </div>
+      </aside>
 
-  <!-- ABOUT -->
-  <section id="about" class="container">
-    <h2 class="section-title">Professional Profile</h2>
-    <p class="section-kicker">Focused summary</p>
-    <div class="card" style="max-width: 900px; margin: 0 auto;">
-      <p>
-        Security Engineer with 4+ years across application and infrastructure security. I conduct <strong>security assessments</strong>, drive <strong>control adoption</strong> in cloud and on‑prem platforms, and partner with engineering so security exists at the outset of design. My work focuses on <strong>risk identification</strong>, <strong>KRIs</strong> and <strong>detection effectiveness</strong>, and adherence to <strong>NIST/CIS</strong> and <strong>CIA</strong> principles.
-      </p>
-    </div>
-  </section>
+      <!-- ===== MAIN ===== -->
+      <main class="stack">
+        <!-- EXPERIENCE -->
+        <section class="card pad">
+          <h2>Experience</h2>
+          <div class="divider"></div>
+          <div class="exp">
+            <div class="exp-item">
+              <div class="exp-top">
+                <div><span class="role">Software Development Intern</span> • <span class="company">Tyler Technologies</span> • New York</div>
+                <div class="date">May 2024 – Present</div>
+              </div>
+              <ul class="bullets">
+                <li>Built secure web apps with mitigations for OWASP Top 10 (XSS, SQLi), embedding validations early in SDLC.</li>
+                <li>Performed security assessments of .NET 8 APIs/web apps, eliminated SSRF and cut unauthorized access by <strong>70%</strong>.</li>
+                <li>Partnered with architects to integrate security checkpoints at design for earlier detection.</li>
+              </ul>
+            </div>
 
-  <!-- SKILLS / EXPERTISE -->
-  <section id="skills" class="container">
-    <h2 class="section-title">Core Expertise</h2>
-    <p class="section-kicker">What I bring on day one</p>
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>Application Security</h3>
-        <ul class="bullets">
-          <li>Threat modeling, secure SDLC, OWASP Top 10</li>
-          <li>Assessment of APIs / web apps; issue lifecycle tracking</li>
-          <li>Partnering with dev teams to bake in controls</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Cloud & Infrastructure</h3>
-        <ul class="bullets">
-          <li>AWS & Azure controls (IAM, WAF, KMS, Sentinel, Firewalls)</li>
-          <li>Zero Trust, network segmentation, least‑privilege IAM</li>
-          <li>On‑prem to cloud architecture reviews</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Detection & Risk</h3>
-        <ul class="bullets">
-          <li>KRIs monitoring and trend analysis</li>
-          <li>Detection tuning and sensory tooling uplift</li>
-          <li>Regulatory alignment (NIST, CIS) + CIA enforcement</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+            <div class="exp-item">
+              <div class="exp-top">
+                <div><span class="role">Cyber Security Project Intern</span> • <span class="company">National Security Agency (UAlbany Coursework)</span> • New York</div>
+                <div class="date">Aug 2023 – Dec 2023</div>
+              </div>
+              <ul class="bullets">
+                <li>Designed a ReactJS + C# monitoring dashboard; boosted multi‑cloud security visibility by <strong>40%</strong>.</li>
+                <li>Automated ingestion of <strong>10K+</strong> log events/day from Azure Monitor & AWS CloudWatch; enhanced threat detection.</li>
+                <li>Conducted risk analysis and recommended multi‑cloud security controls with mentors.</li>
+              </ul>
+            </div>
 
-  <!-- JD MATCH -->
-  <section id="role-fit" class="container">
-    <h2 class="section-title">Role Fit Highlights</h2>
-    <p class="section-kicker">How my background maps to Security Engineering roles</p>
-    <div class="jd-match">
-      <div class="jd-chip"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Security assessments for business‑initiated projects</span></div>
-      <div class="jd-chip"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Security controls across platforms (cloud + on‑prem)</span></div>
-      <div class="jd-chip"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Collaborate early so security exists at design</span></div>
-      <div class="jd-chip"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Uplift detection via KRIs, tuning, sensory tools</span></div>
-      <div class="jd-chip"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Communicate risks succinctly; manage issue lifecycle</span></div>
-      <div class="jd-chip"><i class="fas fa-check-circle" aria-hidden="true"></i><span>Regulatory alignment (NIST, CIS) & CIA principles</span></div>
-    </div>
-  </section>
+            <div class="exp-item">
+              <div class="exp-top">
+                <div><span class="role">Consultant, Cloud Security & Engineering</span> • <span class="company">Deloitte</span> • Mumbai</div>
+                <div class="date">Sep 2022 – Jul 2023</div>
+              </div>
+              <ul class="bullets">
+                <li>Led <strong>25+</strong> project security assessments; embedded application & infrastructure controls in multi‑cloud environments.</li>
+                <li>Architected least‑privilege IAM across <strong>7,000+</strong> resources; enforced Zero Trust; achieved <strong>93%</strong> compliance (NIST, CIS).</li>
+                <li>Communicated risks to developers and engineers; drove process efficiencies to reduce attack surface.</li>
+              </ul>
+            </div>
 
-  <!-- EXPERIENCE -->
-  <section id="experience" class="container">
-    <h2 class="section-title">Experience</h2>
-    <div class="timeline" aria-label="Experience timeline">
-      <article class="t-item">
-        <div class="job">Software Development Intern</div>
-        <div class="meta">Tyler Technologies • New York</div>
-        <div class="date">May 2024 – Present</div>
-        <ul class="bullets">
-          <li>Performed app security assessments (.NET 8 APIs/web), eliminating SSRF; reduced unauthorized access by 70%.</li>
-          <li>Embedded security checkpoints at design; early detection of OWASP risks (XSS/SQLi).</li>
-        </ul>
-      </article>
-      <article class="t-item">
-        <div class="job">Consultant, Cloud Security & Engineering</div>
-        <div class="meta">Deloitte • Mumbai</div>
-        <div class="date">Sep 2022 – Jul 2023</div>
-        <ul class="bullets">
-          <li>Led 25+ project security assessments; embedded app/infra controls in multi‑cloud environments.</li>
-          <li>Architected least‑privilege IAM across 7,000+ resources; enforced Zero Trust; achieved 93% NIST/CIS compliance.</li>
-          <li>Communicated risks clearly to dev/infra teams; reduced attack surface via process efficiencies.</li>
-        </ul>
-      </article>
-      <article class="t-item">
-        <div class="job">DevSecOps Engineer</div>
-        <div class="meta">Foraysoft • Mumbai</div>
-        <div class="date">Jun 2022 – Sep 2022</div>
-        <ul class="bullets">
-          <li>Integrated SAST (SonarQube) & monitoring (Datadog) into CI/CD; cut pre‑deploy defects by 35%.</li>
-          <li>Automation (Python/PowerShell/Bash) reduced manual workload by 71%.</li>
-        </ul>
-      </article>
-      <article class="t-item">
-        <div class="job">Cloud Security Engineer</div>
-        <div class="meta">LTIMindtree • Mumbai</div>
-        <div class="date">Jun 2020 – Mar 2022</div>
-        <ul class="bullets">
-          <li>Threat modeling & risk assessments prevented 95% critical vulns pre‑deployment.</li>
-          <li>Centralized monitoring (GuardDuty/Azure Security Center); 30% faster incident triage; KRIs used to mitigate emerging risks.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
+            <div class="exp-item">
+              <div class="exp-top">
+                <div><span class="role">DevSecOps Engineer</span> • <span class="company">Foraysoft</span> • Mumbai</div>
+                <div class="date">Jun 2022 – Sep 2022</div>
+              </div>
+              <ul class="bullets">
+                <li>Authored automation scripts (Python, PowerShell, Bash) to eliminate <strong>71%</strong> manual workload.</li>
+                <li>Integrated SAST (SonarQube) & monitoring (Datadog) into CI/CD; minimized pre‑deployment defects by <strong>35%</strong>.</li>
+                <li>Embedded risk‑based security checkpoints across releases with compliance and DevOps teams.</li>
+              </ul>
+            </div>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="container">
-    <h2 class="section-title">Selected Projects</h2>
-    <div class="grid grid-3">
-      <div class="card project">
-        <h3>Multi‑Cloud Monitoring Platform</h3>
-        <p class="text-sm">NSA Collaboration</p>
-        <ul class="bullets">
-          <li>Correlated CloudTrail, VPC Flow Logs, GuardDuty; +30% actionable detections.</li>
-          <li>Designed alert correlation (C# + SQL) to uplift detection effectiveness.</li>
-        </ul>
-      </div>
-      <div class="card project">
-        <h3>Offensive Security Simulation</h3>
-        <p class="text-sm">Red/Blue/Purple Team</p>
-        <ul class="bullets">
-          <li>Exploited OWASP/API flaws; 50% exposure reduction post‑remediation.</li>
-          <li>Mapped TTPs to MITRE ATT&CK; validated response playbooks.</li>
-        </ul>
-      </div>
-      <div class="card project">
-        <h3>Zero Trust IAM Framework</h3>
-        <p class="text-sm">Enterprise Implementation</p>
-        <ul class="bullets">
-          <li>Identity‑centric controls across AWS/Azure; reduced unauthorized access attempts.</li>
-          <li>Policy‑as‑code and least‑privilege baselines at scale.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+            <div class="exp-item">
+              <div class="exp-top">
+                <div><span class="role">Cloud Security Engineer</span> • <span class="company">LTIMindtree</span> • Mumbai</div>
+                <div class="date">Jun 2020 – Mar 2022</div>
+              </div>
+              <ul class="bullets">
+                <li>Threat modeling & risk assessments prevented <strong>95%</strong> of critical vulnerabilities pre‑deployment.</li>
+                <li>Deployed Azure Firewall & AWS Network Firewall; improved incident response times by <strong>30%</strong>.</li>
+                <li>Central monitoring via GuardDuty & Azure Security Center; mitigated non‑compliance by <strong>75%</strong> using KRI trends.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="container contact">
-    <h2 class="section-title">Let’s Connect</h2>
-    <p class="section-kicker">Open to discussing how I can help strengthen security posture</p>
-    <div class="grid" style="max-width:760px;margin:0 auto;gap:16px;">
-      <div class="card" style="display:flex;align-items:center;justify-content:center;gap:10px;">
-        <i class="fas fa-envelope" aria-hidden="true"></i>
-        <a href="mailto:mihirkatre@gmail.com" aria-label="Email Mihir">mihirkatre@gmail.com</a>
-      </div>
-      <div class="card" style="display:flex;align-items:center;justify-content:center;gap:10px;">
-        <i class="fas fa-phone" aria-hidden="true"></i>
-        <span aria-label="Phone number">(518) 708‑1649</span>
-      </div>
-      <div class="card" style="display:flex;align-items:center;justify-content:center;gap:10px;">
-        <i class="fab fa-linkedin" aria-hidden="true"></i>
-        <a href="https://www.linkedin.com/in/mihir-katre/" target="_blank" rel="noopener">linkedin.com/in/mihir-katre</a>
-      </div>
-      <div class="card" style="display:flex;align-items:center;justify-content:center;gap:10px;">
-        <i class="fas fa-location-dot" aria-hidden="true"></i>
-        <span>New York</span>
-      </div>
-    </div>
-  </section>
+        <!-- SKILLS -->
+        <section class="card pad">
+          <h2>Expertise</h2>
+          <div class="divider"></div>
+          <div class="skills">
+            <div class="skill-card">
+              <div class="skill-title">Application Security</div>
+              <ul class="skill-list">
+                <li>OWASP Top 10, API Security, MITRE ATT&CK</li>
+                <li>Burp Suite, Metasploit, Kali, Nessus, Nmap, Wireshark</li>
+                <li>Secure SDLC, threat modeling, code review</li>
+              </ul>
+            </div>
+            <div class="skill-card">
+              <div class="skill-title">Cloud Security</div>
+              <ul class="skill-list">
+                <li>AWS: IAM, WAF, KMS, Security Hub • Azure: Sentinel, RBAC, Firewalls, NSG, VPN, ASG, Key Vault</li>
+                <li>Zero Trust, network segmentation, least‑privilege IAM</li>
+                <li>Monitoring & logging (CloudWatch, Azure Monitor)</li>
+              </ul>
+            </div>
+            <div class="skill-card">
+              <div class="skill-title">DevSecOps & Automation</div>
+              <ul class="skill-list">
+                <li>CI/CD (GitHub Actions, Azure DevOps, Octopus Deploy)</li>
+                <li>IaC (Terraform, CloudFormation), Ansible, Docker</li>
+                <li>SonarQube, SAST/DAST, scripting (PowerShell, Bash)</li>
+              </ul>
+            </div>
+            <div class="skill-card">
+              <div class="skill-title">Programming</div>
+              <ul class="skill-list">
+                <li>C#, .NET (Core & 8), JavaScript, Blazor, Angular, Vue</li>
+                <li>REST APIs, PowerShell, Bash</li>
+              </ul>
+            </div>
+            <div class="skill-card">
+              <div class="skill-title">Risk & Compliance</div>
+              <ul class="skill-list">
+                <li>Security control implementation, risk identification</li>
+                <li>NIST, CIS benchmarks; CIA principles</li>
+                <li>Issue lifecycle tracking; stakeholder communication</li>
+              </ul>
+            </div>
+            <div class="skill-card">
+              <div class="skill-title">KRIs & Detection</div>
+              <ul class="skill-list">
+                <li>KRIs monitoring, trend analysis, proactive measures</li>
+                <li>Detection tuning, sensory tools uplift, data access</li>
+                <li>Blue/Red/Purple team exposure</li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
-  <footer class="container" style="padding: 30px 20px; color: var(--text-muted); text-align:center;">
-    <small>&copy; <span id="year"></span> Mihir Katre • Security Engineering Portfolio</small>
-  </footer>
+        <!-- PROJECTS -->
+        <section class="card pad">
+          <h2>Selected Projects</h2>
+          <div class="divider"></div>
+          <div class="projects">
+            <div class="proj">
+              <h3>Multi‑Cloud Monitoring Tool</h3>
+              <div class="meta-sm">NSA Collaboration • Aug 2023 – Jan 2024</div>
+              <ul class="bullets">
+                <li>Built real‑time platform for AWS, Azure, GCP; improved anomaly detection across environments.</li>
+                <li>Correlated CloudTrail, VPC Flow Logs, GuardDuty; increased actionable detections by <strong>30%</strong>.</li>
+                <li>Developed alert correlation logic (C# + SQL) to uplift detection effectiveness; aligned with NIST & CIS.</li>
+              </ul>
+            </div>
+            <div class="proj">
+              <h3>Offensive Security Simulation & Pen Testing</h3>
+              <div class="meta-sm">Aug 2024 – May 2025</div>
+              <ul class="bullets">
+                <li>Exploited OWASP Top 10 & privilege escalation; reduced enterprise exposure by <strong>50%</strong> post‑remediation.</li>
+                <li>Red/Blue/Purple team exercises; validated response playbooks; AD lateral movement testing.</li>
+                <li>Delivered executive‑level remediation reports; reduced repeat vulnerabilities in audits.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- COMMUNITY / CTF -->
+        <section class="card pad">
+          <h2>CTF & Community</h2>
+          <div class="divider"></div>
+          <ul class="bullets">
+            <li>Ranked top <strong>15%</strong> nationally in CTFs (Cyber Seed, Cyber Defense Organization, picoCTF).</li>
+            <li>Completed <strong>100+</strong> labs (DVWA, TryHackMe, HackTheBox) on SQLi, XSS, CSRF, SSRF, IDOR, deserialization.</li>
+            <li>Simulated TTPs aligned with MITRE ATT&CK; developed custom exploit & validation scripts.</li>
+          </ul>
+        </section>
+
+        <!-- EDUCATION / CERTS -->
+        <section class="card pad">
+          <h2>Education & Certifications</h2>
+          <div class="divider"></div>
+          <div class="exp">
+            <div class="exp-item">
+              <div class="exp-top">
+                <div><span class="role">M.S., Digital Forensics & Cybersecurity</span> • <span class="company">University at Albany, SUNY</span></div>
+                <div class="date">May 2025 • GPA 3.97</div>
+              </div>
+              <div class="meta-sm">Coursework: Cloud Security, Network Security, Web App Security, Pen Testing, Threat Hunting, Vulnerability Exploitation, Cyber Law & Ethics, Reverse Engineering Malware.</div>
+            </div>
+            <div class="exp-item">
+              <div class="exp-top">
+                <div><span class="role">Certifications</span></div>
+              </div>
+              <ul class="bullets">
+                <li>AWS Technical Professional • AWS Cloud Practitioner</li>
+                <li>Microsoft: Azure Fundamentals (AZ‑900), Azure Administrator Associate (AZ‑104)</li>
+                <li>CompTIA Security+ (In Progress)</li>
+                <li>Java Level 1 & 2 – CCA • Red Hat Certified Ansible Automation Specialist – Linux Academy</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="card pad">
+          <h2>Contact</h2>
+          <div class="divider"></div>
+          <p>Email: <a href="mailto:mihirkatre@gmail.com">mihirkatre@gmail.com</a> • Phone: (518) 708‑1649 • LinkedIn: <a href="https://www.linkedin.com/in/mihir-katre/" target="_blank" rel="noopener">/in/mihir-katre</a></p>
+        </section>
+
+        <footer>
+          <small>&copy; <span id="year"></span> Mihir Katre • Security Engineering Portfolio</small>
+        </footer>
+      </main>
+    </div>
+  </div>
 
   <script>
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
+    // Theme toggle
+    const root = document.documentElement;
+    const btn = document.querySelector('.toggle-theme');
+    const pref = localStorage.getItem('theme');
+    if (pref) document.documentElement.setAttribute('data-theme', pref);
+    btn?.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', current);
+      localStorage.setItem('theme', current);
+    });
   </script>
 </body>
 </html>
