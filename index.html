@@ -66,6 +66,78 @@
             50% { transform: scale(1.1); }
         }
         
+        /* Header Top Row with Download Button */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .header-left {
+            flex: 1;
+        }
+        
+        .download-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, var(--success) 0%, #00a8cc 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .download-btn:hover::before {
+            left: 100%;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 217, 255, 0.4);
+        }
+        
+        .download-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+        
+        .recruiter-note {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-align: right;
+        }
+        
         .name {
             font-size: 3rem;
             font-weight: 800;
@@ -105,6 +177,12 @@
         .contact-item a {
             color: inherit;
             text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .contact-item a:hover {
+            color: var(--success);
+            text-decoration: underline;
         }
         
         /* Key Qualifications */
@@ -380,6 +458,20 @@
         
         /* Responsive Design */
         @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+            }
+            
+            .download-section {
+                align-items: center;
+                width: 100%;
+            }
+            
+            .download-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
             .name {
                 font-size: 2rem;
             }
@@ -404,6 +496,10 @@
                 color: black;
             }
             
+            .download-section {
+                display: none;
+            }
+            
             .header, .qualifications, .experience-section, .skills-section, .projects-section, .education-section {
                 background: white;
                 border: 1px solid #ddd;
@@ -425,8 +521,22 @@
     <div class="container">
         <!-- Header -->
         <header class="header">
-            <h1 class="name">Mihir Katre</h1>
-            <p class="title">Security Engineering Professional</p>
+            <div class="header-top">
+                <div class="header-left">
+                    <h1 class="name">Mihir Katre</h1>
+                    <p class="title">Security Engineering Professional</p>
+                </div>
+                <div class="download-section">
+                    <a href="asset/MihirKatre_Resume" class="download-btn" download="Mihir_Katre_Resume.pdf">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17V6h2v8.17l3.59-3.58L17 12l-5 5z"/>
+                        </svg>
+                        Download Resume
+                    </a>
+                    <span class="recruiter-note">PDF Format • Ready for ATS</span>
+                </div>
+            </div>
+            
             <p style="color: var(--text-secondary); max-width: 800px; line-height: 1.8;">
                 Security Engineer with 4+ years of experience in cloud security, application security, and DevSecOps. 
                 Experienced in leading risk assessments, designing secure architectures, and automating controls to strengthen enterprise defenses. 
@@ -440,7 +550,7 @@
                 </span>
                 <span class="contact-item">📱 (518) 708-1649</span>
                 <span class="contact-item">
-                    <a href="https://www.linkedin.com/in/mihir-katre/" target="_blank">🔗 LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/mihir-katre/" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>
                 </span>
             </div>
         </header>
@@ -588,7 +698,6 @@
                         <span class="skill-tag">MITRE ATT&CK</span>
                         <span class="skill-tag">Secure SDLC</span>
                         <span class="skill-tag">Threat Modeling</span>
-                       <span class="skill-tag">Threat Modeling</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -638,7 +747,7 @@
                     <div class="skill-tags">
                         <span class="skill-tag">CI/CD Security</span>
                         <span class="skill-tag">IaC (Ansible, Terraform, ARM)</span>
-                        <span class="skill-tag">SAST/DAST (SonarQube, Brup, Zap)</span>
+                        <span class="skill-tag">SAST/DAST (SonarQube, Burp, ZAP)</span>
                         <span class="skill-tag">Container Security</span>
                         <span class="skill-tag">Automation (PowerShell, Python)</span>
                     </div>
@@ -656,21 +765,6 @@
                     Built real-time monitoring platform for hybrid cloud environments, correlating security events across 
                     AWS, Azure, and on-premise infrastructure. Improved anomaly detection and increased actionable alerts by 
                     <span class="highlight-metric">30%</span> through advanced correlation logic.
-                </p>
-                <div class="project-tech">
-                    <span class="tech-badge">Cloud Security</span>
-                    <span class="tech-badge">Detection Engineering</span>
-                    <span class="tech-badge">Data Analytics</span>
-                    <span class="tech-badge">NIST Compliance</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <h3 class="project-title">Zero Trust Security Architecture Implementation</h3>
-                <p style="color: var(--text-secondary); margin: 0.5rem 0;">
-                    Architected and deployed comprehensive Zero Trust framework across 7,000+ resources, implementing 
-                    least-privilege access controls and continuous verification. Achieved <span class="highlight-metric">93% 
-                    compliance</span> with regulatory standards while maintaining operational efficiency.
                 </p>
                 <div class="project-tech">
                     <span class="tech-badge">Zero Trust</span>
@@ -708,11 +802,11 @@
                     Threat Hunting, Vulnerability Exploitation, Reverse Engineering
                 </p>
 
-                <h3 style="color: var(--text); margin-bottom: 0.5rem;">Bachelor of Science - Computer Science</h3>
-                <p style="color: var(--success);">University of Mumbai •  March 2020 • GPA: 8.93 </p>
+                <h3 style="color: var(--text); margin-bottom: 0.5rem; margin-top: 1.5rem;">Bachelor of Science - Computer Science</h3>
+                <p style="color: var(--success);">University of Mumbai • March 2020 • GPA: 8.93</p>
                 <p style="color: var(--text-secondary); margin-top: 0.5rem;">
-                    Advanced coursework: Data Structure and Algorithms, C Programming, Advanced Python, Advanced Java, Android Development
-                    Game Development, Ethical hacking, Web Programming, Introduction to AI and ML.
+                    Advanced coursework: Data Structure and Algorithms, C Programming, Advanced Python, Advanced Java, Android Development,
+                    Game Development, Ethical hacking, Web Programming, Introduction to AI and ML
                 </p>
             </div>
 
@@ -741,4 +835,3 @@
         </section>
     </div>
 </body>
-</html>
